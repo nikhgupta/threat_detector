@@ -1,0 +1,118 @@
+---
+alienvault_ip_reputation:
+  contents: ip
+  delimiter: "#"
+bad_ips:
+  contents: ip
+bbcan177_dnsbl:
+  contents: mixed
+bbcan177_malicious_ips:
+  contents: ip
+  custom: true
+blocklist_de_blocklist:
+  contents: ip
+botvrij_eu_domains:
+  contents: host
+botvrij_eu_hostnames:
+  contents: host
+botvrij_eu_ips:
+  contents: ip
+botvrij_eu_urls:
+  contents: url
+brute_force_blocker:
+  contents: ip
+c_c_domains:
+  contents: host
+c_c_ips:
+  contents: ip
+ci_bad_guys:
+  contents: ip
+coinblocker_domains:
+  contents: host
+compromised_ips:
+  contents: ip
+cridex_ips:
+  contents: ip
+  column: 1
+  custom: true
+darklist:
+  contents: ip
+dictionary_ssh_attacks:
+  contents: ip
+  delimiter: ":"
+  column: 1
+domains_blacklist:
+  contents: host
+  delimiter: ";"
+dyre_botnet_ips:
+  contents: ip
+feodo_tracker:
+  contents: ip
+  custom: true
+  column: 1
+greensnow_blacklist:
+  contents: ip
+hancitor_ips:
+  contents: ip
+high_confidence_ipv4_drop_list:
+  contents: ip
+immortal_malware_domains:
+  contents: host
+ipspamlist:
+  contents: ip
+  column: 2
+  header: true
+malicious_exe_ips:
+  contents: ip
+malicious_exe_urls:
+  contents: mixed
+malware_corpus_tracker:
+  contents: url
+  column: 2
+  quoted: true
+malware_domains:
+  contents: host
+malware_domains_list:
+  contents: mixed
+  column: 2
+  quoted: true
+monero_miner:
+  contents: host
+nocoin:
+  contents: host
+  column: 1
+  delimiter: " "
+openphish:
+  contents: url
+phishtank:
+  contents: url
+  column: 1
+  header: true
+ransomware_domains:
+  contents: host
+ransomware_ips:
+  contents: ip
+ransomware_urls:
+  contents: url
+simple_malware_list:
+  contents: host
+  custom: true
+ssl_bl:
+  contents: ip
+  column: 1
+suspicious_domains:
+  contents: host
+  header: true
+suspicious_dynamic_dns_providers:
+  contents: host
+  custom: true
+talos_ip_blacklist:
+  contents: ip
+tor_ips:
+  contents: ip
+urlhaus:
+  contents: url
+zeus_bad_domains:
+  contents: host
+zeus_bad_ips:
+  contents: ip
