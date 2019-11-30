@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 module ThreatDetector
+  # Download feeds from ThreatFeeds, and scrape them synchronously.
+  #
+  # Path where feed entries will be saved can be provided, along with
+  # scraping configuration for various feed URLs. Please, look into
+  # `ThreatDetector::Scraper` to read more about scraping configuration.
+  #
   class Downloader
     include ThreatDetector::Utility
     FEEDS_URL = 'https://threatfeeds.io'
@@ -12,17 +18,24 @@ module ThreatDetector
       @cache = ThreatDetector::Cache.load(options)
     end
 
-    def run(&block)
-      fetch_feeds_json
+    # Fetch feeds as JSON data from ThreatFeeds.io, and scrape them.
+    #
+    # Entries from each feed are saved into subsets in our local cache.
+    # Afterwards, we freeze our cache to make sure its not mutable.
+    #
+    # We can pass a block to this method to further work with the scraper.
+    #
+    def run
+      fetch_feeds_json FEEDS_URL
+      scraper = ThreatDetector::Scraper.new options
 
-      group_feeds_by_name.each do |name, rows|
-        scraper = ThreatDetector::Scraper.new name, options
-        rows.each.with_index do |row, idx|
-          scraper.url = row['url']
-          scraper.parse_and_save_entries { |arr| @cache.add_entries arr }
+      @json.each do |row|
+        next unless valid_feed?(row)
 
-          block&.call(row['name'], idx, row, scraper)
-        end
+        scraper.reset!(row['name'], row['url'])
+        scraper.parse_and_save_entries { |arr| @cache.add_entries arr }
+
+        yield(row['name'], row, scraper) if block_given?
       end
 
       @cache.finalize!
@@ -30,9 +43,9 @@ module ThreatDetector
 
     protected
 
-    def fetch_feeds_json
+    def fetch_feeds_json(url)
+      fetch_page url
       regex = /var\s+feeds\s*=\s*(.*?);/i
-      fetch_page FEEDS_URL
       match = @page.body_str.match(regex)
       raise_error 'Could not find feeds JSON' unless match
 
@@ -41,18 +54,10 @@ module ThreatDetector
       raise_error 'Could not validate feeds JSON'
     end
 
-    def group_feeds_by_name
-      grouped = @json.group_by do |row|
-        row['name']
-      end
+    def valid_feed?(row)
+      return false if row['url'].to_s.strip.empty?
 
-      grouped.map do |name, rows|
-        rows = rows.select do |row|
-          !row['url'].to_s.strip.empty? && row['pricing'] == 'free'
-        end
-
-        [name.parameterize.underscore, rows]
-      end.to_h
+      row['pricing'] == 'free'
     end
   end
 end

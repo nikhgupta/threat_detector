@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 require 'curb'
 require 'yaml'
 require 'nokogiri'

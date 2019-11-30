@@ -16,7 +16,7 @@ module ThreatDetector
                                       default: ThreatDetector::DEFAULT_CONFIG,
                                       desc: 'Scraping config for various feeds'
     def scrape
-      info = ThreatDetector.download(options) do |name, _, _, sc|
+      info = ThreatDetector.download(options) do |name, _row, sc|
         if sc.reason
           say_status 'Warning', "#{sc.reason} for tracker: #{name}", :yellow
         else
