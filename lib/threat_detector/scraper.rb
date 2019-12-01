@@ -17,36 +17,84 @@ module ThreatDetector
     extend Forwardable
     def_delegators :@entries, :each, :take, :map, :size, :<<, :shuffle, :empty?
 
-    attr_reader :name, :url, :reason
+    attr_reader :name, :url, :reason, :options, :entries, :config
 
+    # Instantiate a new {ThreatDetector::Scraper}
+    #
+    # @param  (see ThreatDetector::Utility#sanitize_options)
+    # @option opts [String] :working_directory directory to download feeds and build cache in
+    # @option opts [String] :feeds_config_path path to YAML file with scraping config
+    #
+    # The default options are:
+    #   working_directory: ~/.threat_detector
+    #   feeds_config_path: <gem_path>/threat_detector/feeds.yaml
     def initialize(options = {})
       @options = sanitize_options(options)
+      reset!
     end
 
-    # Reset the scraper for a new feed.
-    #
-    # Please, note that, `name` provided here is used to fetch scraping
-    # configuration for this scraper.
-    #
-    def reset!(name, url)
-      @entries = []
-
-      @name = name.parameterize.underscore
-      @url  = url.strip
-      @page = @reason = nil
-
-      @config = @options[:feeds_config_path]
-      @config = File.exist?(@config) ? YAML.load_file(@config) : {}
-      @config = @config[name]
+    # Set the name for this scraper. This, also, resets the scraping config, as well as,
+    # other internal states for this scraper. This name is used to fetch appropriate config
+    # settings.
+    # !@attribute [w] name name for this scraper
+    def name=(name)
+      @name = name.to_s.parameterize.underscore
+      reset!
     end
 
-    # Scrape the feed based on provided config.
+    # Set the url for this scraper. This, also, resets the scraping config, as well as,
+    # other internal states for this scraper. Scraper with same name can have multiple
+    # URLs which may have different threat entries.
+    # !@attribute [w] url url for this scraper
+    def url=(url)
+      @url = url.to_s.strip
+      reset!
+    end
+
+    # Reset the scraper instance to work for a feed with provided name and URL.
+    # Though, this method returns the resetted scraper instance for chaining purposes.
+    # @param [String] name name for this scraper
+    # @param [String, URI] url url for this scraper
+    # @return [self] resetted scraper instance with name and URL for feed configured
+    def for(name, url)
+      self.url = url
+      self.name = name
+      self
+    end
+
+    # Check if the scraper is configured via YAML scraping configuration?
+    # @return [Bool]
+    def configured?
+      !@config.empty?
+    end
+
+    # Check whether the cached file exists? Also, check if we are not refreshing the feeds?
+    # @return [Bool]
+    def cached?
+      !refresh? && File.exist?(save_path)
+    end
+
+    # Add a reason to the current scraper instance for skipping a feed.
+    # @return [self]
+    def add_reason(message)
+      @reason ||= message
+      self
+    end
+
+    # Method that scrapes and parses the page for a feed with given name and URL
     #
-    # We use a generalized method to scrape most feed entries, and
-    # resort to special routines for scraping some feeds.
+    # We use a generalized method {#fetch_entries_via} for most feeds, and
+    # resort to custom methods defined in this class for scraping some feeds.
     #
-    # Everytime, we ignore a feed for some reason, we cache the reason
-    # for possible use later (e.g. CLI tool).
+    # Every time that we ignore/skip a feed for some reason, we update the
+    # scraper instance to contain the reason for skipping that feed.
+    #
+    # @note If a feed has alreayd been downloaded locally, it will be skipped.
+    #   If you want to fetch such a feed again, you need to set `refresh`
+    #   attribute to `true`.
+    #
+    # @return [self] scraper instance with reason for skipping and/or entries
+    #   after scraping was performed
     def parse
       return add_reason('Found cached entries') if cached?
 
@@ -56,45 +104,50 @@ module ThreatDetector
       method = @config['custom'] ? "parse_#{name}" : :fetch_entries
       @entries = send(method)
 
-      add_reason 'No entries found' if empty?
+      empty? ? add_reason('No entries found') : self
     rescue Curl::Err::MalformedURLError
-      add_reason 'Maltformed URL passed'
+      add_reason 'Malformed URL passed'
     rescue Curl::Err::TimeoutError
       add_reason 'Timeout received'
     end
 
     # Save entries to local cache files.
     # These files are different than the Trie based dumps, and are useful
-    # to quickly update/sync our data from ThreatFeeds.io
+    # to quickly update/sync our data from online sources
     #
+    # @note No entries will be saved if the name or URL is not set.
+    # @return [String,nil] path to the file where entries were saved
     def save_entries
       return if empty?
 
       File.open(save_path, 'w') { |f| f.puts @entries }
+      save_path
     end
 
     # Utility method to scrape and save entries so obtained.
+    #
+    # @yield [entries] hook to work with entries after scraping current feed
+    # @yieldparam [Array<String>] entries scraper entries fetched from the current feed
+    # @return [self]
     def parse_and_save_entries
       parse
       save_entries
-      block_given? ? yield(@entries) : @entries
+      yield(entries) if block_given?
+      entries
     end
 
-    # Path to cache file for this scraper (name/url combi)
+    # Path to file where entries from current feed will be saved.
+    # Since, there can be multiple feeds with the same name, the save path for
+    # a feed is appended with a MD5 hash substring.
+    # @return [String,nil] Path for the file or nil if name or URL is not set
     def save_path
-      path = File.join(@options[:working_directory], 'feeds')
+      return unless name && url
+
+      path = File.join(working_directory, 'feeds')
       FileUtils.mkdir_p(path) unless File.directory?(path)
 
-      hash = Digest::MD5.hexdigest(@url)
+      hash = Digest::MD5.hexdigest(url)
       File.join(path, "#{name}-#{hash[0..8]}.txt")
-    end
-
-    def cached?
-      !@options[:refresh] && File.exist?(save_path)
-    end
-
-    def add_reason(message)
-      @reason ||= message
     end
 
     protected
@@ -127,11 +180,22 @@ module ThreatDetector
 
     private
 
-    # Fetch entries from the Feed URL.
+    # Reset the internal state of the scraper.
+    def reset!
+      @entries = []
+      @page = @reason = nil
+
+      @config = @options[:feeds_config_path]
+      @config = File.exist?(@config) ? YAML.load_file(@config) : {}
+      @config = @config.key?(name) ? @config[name] : {}
+
+      self
+    end
+
+    # Fetch entries by scraping the Feed URL.
     #
     # We sanitize the feed to read a specific column. This method
     # generalizes to most feed URLs to obtain threat entries.
-    #
     def fetch_entries_via(url = nil)
       fetch_page url if url
       rows = @page.body_str.split("\n").map do |line|
@@ -153,6 +217,7 @@ module ThreatDetector
       @config.fetch('quoted', false) ? row.gsub(/\"(.*)\"/, '\1') : row
     end
 
+    # Check whether we have a valid page based on response code and content.
     def valid_page?
       return false unless @page
       return false if @page.response_code >= 400
@@ -160,6 +225,7 @@ module ThreatDetector
       @page.body_str.strip.length.positive?
     end
 
+    # Fetch csv links from a given page
     def csv_links(page)
       html = Nokogiri::HTML(page.body_str)
       urls = html.search('a').map { |a| a.attr('href') }

@@ -1,0 +1,754 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://threatfeeds.io/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 02 Dec 2019 06:25:00 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Powered-By:
+      - PHP/5.4.16
+      Set-Cookie:
+      - PHPSESSID=6croc6qbm6mbsvsb64um8ioa75; path=/; secure; HttpOnly
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html>\n<html lang='en'>\n\t<head>\n\t\t<base href='https://threatfeeds.io'>\n\t\t\n\t\t<!--
+        local Google Analytics so it's not blocked by ad blocker extensions -->\n\t\t<!--
+        also don't load async b/c it'll only work like half the time... -->\n\t\t<script
+        src=\"./js/ga_gtag.js?id=UA-108145347-4&v=1.52\"></script>\n\t\t\n\t\t<!--
+        Global site tag (gtag.js) - Google Analytics -->\n\t\t<!--<script src=\"https://www.googletagmanager.com/gtag/js?id=UA-108145347-4\"></script>-->\n\t\t<script>\n\t\t\t\n\t\t\t//
+        Google Analytics\n\t\t\twindow.dataLayer = window.dataLayer || [];\n\t\t\tfunction
+        gtag(){\n\t\t\t\tdataLayer.push(arguments);\n\t\t\t}\n\t\t\tgtag('js', new
+        Date());\n\t\t\tgtag('config', 'UA-108145347-4');\n\t\t\t\n\t\t</script>\n\t\t\n\t\t<meta
+        http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n\t\t<meta charset='utf-8'>\n\t\t<meta
+        name='description' content=\"Search and download free and open-source threat
+        intelligence feeds with threatfeeds.io.\">\n\t\t<meta name='keywords' content='cyber
+        threat intelligence feeds,cyber threat intelligence dashboard,cyber threat
+        dashboard,osint threat intelligence,threat,threat intel,threat intelligence,cyber
+        threat intelligence,cybersecurity,threat,threat protection,unified threat
+        management,network security,information security,cyber,it security,free threat
+        intelligence,open source threat intelligence platform,threat intelligence
+        platform,threat intelligence feeds,reduce false positives,vet threat intelligence,ioc'>\n\t\t<meta
+        name='author' content='Pulsedive LLC'>\n\t\t<meta name='viewport' content='width=device-width,
+        initial-scale=1'>\n\t\t\n\t\t<!-- Twitter card -->\n\t\t<meta name='twitter:card'
+        content='summary_large_image'>\n\t\t<meta name='twitter:site' content='@pulsedive'>\n\t\t<meta
+        name='twitter:creator' content='@netbroom'>\n\t\t<meta name='twitter:title'
+        content=\"Free threat intelligence feeds - threatfeeds.io\">\n\t\t<meta name='twitter:description'
+        content=\"Search and download free and open-source threat intelligence feeds
+        with threatfeeds.io.\">\n\t\t<meta name='twitter:image' content='https://threatfeeds.io/img/promotional.png?v=1.52'>\n\t\t\n\t\t<!--
+        Open Graph card -->\n\t\t<meta property='og:url' content='https://threatfeeds.io'>\n\t\t<meta
+        property='og:title' content=\"Free threat intelligence feeds - threatfeeds.io\">\n\t\t<meta
+        property='og:description' content=\"Search and download free and open-source
+        threat intelligence feeds with threatfeeds.io.\">\n\t\t<meta property='og:image'
+        content='https://threatfeeds.io/img/promotional.png?v=1.52'>\n\t\t\n\t\t<title>Free
+        threat intelligence feeds - threatfeeds.io</title>\n\t\t\n\t\t<link rel='shortcut
+        icon' href='./favicon.ico?v=1.52' type='image/x-icon'>\n\t\t\n\t\t<link href='https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu'
+        rel='stylesheet' type='text/css'>\n\t\t<link rel='stylesheet' href='./css/icons.css?v=1.52'>\n\t\t<link
+        rel='stylesheet' href='./css/body.css?v=1.52'>\n\t\t<link rel='stylesheet'
+        href='./css/data.css?v=1.52'>\n\t\t<link rel='stylesheet' href='./css/riskgraph.css?v=1.52'>\n\t\t<link
+        rel='stylesheet' href='./css/tooltip.css?v=1.52'>\n\t\t<link rel='stylesheet'
+        href='./css/font-awesome.css?v=1.52'>\n\t</head>\n\t\n  \t<body>\n\t\t<script
+        src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>\n\t\t<script
+        src='./js/functions.js?v=1.52'></script>\n\t\t<script src='./js/riskgraph.js?v=1.52'></script>\n\t\t<script
+        src='./js/tooltip.js?v=1.52'></script>\n\t\t<script src='./js/debounce.js?v=1.52'></script>\n\t\t<script
+        src='./js/clipboard.js?v=1.52'></script>\n\t\t\n\t\t<script>\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\n\t\t\t\t// refresh stamps\n\t\t\t\tsetInterval(function() {\n\t\t\t\t\t$('.rstamp').each(function()
+        {\n\t\t\t\t\t\t$(this).html( relativeTime( $(this).attr('stamp') ) );\n\t\t\t\t\t});\n\t\t\t\t},
+        10000);\n\t\t\t\t\n\t\t\t});\n\t\t</script>\n\t\t\n\t\t<noscript><h3>JavaScript
+        is currently disabled. You must enable JavaScript in your browser for this
+        site to work properly.</h3><BR></noscript>\n\t\t\n\t\t<header>\n\t\t\t<a id='logo'
+        href='https://threatfeeds.io'>\n\t\t\t\t<i class='fa fa-logo'></i> threatfeeds<span
+        class='io'>.io</span>\n\t\t\t</a>\n\t\t\t\n\t\t\t<nav>\n\t\t\t\t<a href='./'
+        class='selected'>Feeds</a>\n\t\t\t\t<a href='./submit.php' >Submit</a>\n\t\t\t\t<a
+        href='./contact.php' >Contact</a>\n\t\t\t</nav>\n\t\t\t\n\t\t\t<a id='slack'
+        href='https://join.slack.com/t/pulsedive/shared_invite/enQtMzI3NDQyMjEzMTY4LTBhNmE1NWIyMjdhNjVkYTc5OWMxZGExNWM3OWIxYzYyZGNlMGMwODBjNTZlNjc0M2RhOGQ3MjQwYjQ1Nzk3ZGE'
+        target='_blank'>\n\t\t\t\t<i class='fa fa-slack'></i>\n\t\t\t</a>\n\t\t\t<a
+        id='twitter' href='https://twitter.com/threatfeeds_io' target='_blank'>\n\t\t\t\t<i
+        class='fa fa-twitter'></i>\n\t\t\t</a>\n\t\t</header>\n\t\t\n\t\t\t\t\n\t\t<div
+        id='content'>\n<script>\n\t$(document).ready(function() {\n\t\t\n\t\t// handle
+        searching\n\t\t$('#searchbox').on('click', function(e) {\n\t\t\t$('#search').focus();\n\t\t});\n\t\t$('#search').on('input
+        propertchange', function(e) {\n\t\t\t\n\t\t\t// get search query\n\t\t\tvar
+        query = $('#search').val().toLowerCase().trim();\n\t\t\tif (!query) {\n\t\t\t\t$('.item').show();\n\t\t\t\treturn;\n\t\t\t}\n\t\t\t\n\t\t\t//
+        find matches\n\t\t\t$('.item').stop(true, true).hide().each(function(index)
+        {\n\t\t\t\tif ($(this).data('name').toLowerCase().indexOf(query) >= 0 || $(this).data('author').toLowerCase().indexOf(query)
+        >= 0) {\n\t\t\t\t\t$(this).fadeIn();\n\t\t\t\t}\n\t\t\t});\n\t\t});\n\t\t\n\t\t//
+        get feeds\n\t\tvar feeds = [{\"sid\":52,\"type\":\"feed\",\"name\":\"Malware
+        URLs\",\"url\":\"https:\\/\\/precisionsec.com\\/ref.php?r=pulsedive&d=trial\",\"documentation\":\"\",\"pricing\":\"sponsored\",\"lasthash\":null,\"lastsize\":null,\"lastcode\":null,\"lastlines\":null,\"summary\":{\"indicators\":{\"critical\":10896,\"high\":30736,\"none\":2,\"unknown\":5,\"medium\":38914}},\"author\":\"precisionsec\",\"website\":\"https:\\/\\/precisionsec.com\\/ref.php?r=pulsedive&d=home\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-11-27
+        22:37:14\",\"stamp_updated\":\"2019-12-02 05:00:48\",\"stamp_pulled\":null,\"stamp_modified\":null,\"tags\":[\"csv\",\"malware\"]},{\"sid\":31,\"type\":\"feed\",\"name\":\"Alienvault
+        IP Reputation\",\"url\":\"http:\\/\\/reputation.alienvault.com\\/reputation.data\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"7ae26b4119c5c12be96133781802424f0c5567c6\",\"lastsize\":6273832,\"lastcode\":200,\"lastlines\":88316,\"summary\":{\"indicators\":{\"high\":76,\"_empty_\":3,\"none\":111418,\"medium\":4681,\"low\":102147}},\"author\":\"AlienVault\",\"website\":\"https:\\/\\/www.alienvault.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:58\",\"stamp_updated\":\"2019-07-11 05:00:15\",\"stamp_pulled\":\"2019-12-02
+        05:01:20\",\"stamp_modified\":\"2019-12-02 05:01:20\",\"tags\":[\"csv\"]},{\"sid\":10,\"type\":\"feed\",\"name\":\"Bad
+        IPs\",\"url\":\"https:\\/\\/www.badips.com\\/get\\/list\\/any\\/2\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":500,\"lastlines\":0,\"summary\":{\"indicators\":{\"critical\":2,\"high\":143,\"none\":214793,\"unknown\":160,\"medium\":13104,\"low\":201642}},\"author\":\"badIPs\",\"website\":\"https:\\/\\/www.badips.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:54\",\"stamp_updated\":\"2019-12-02 05:00:20\",\"stamp_pulled\":\"2019-12-02
+        05:01:03\",\"stamp_modified\":\"2019-10-23 05:00:41\",\"tags\":[\"csv\",\"attack\"]},{\"sid\":12,\"type\":\"feed\",\"name\":\"BBcan177
+        DNSBL\",\"url\":\"https:\\/\\/gist.githubusercontent.com\\/BBcan177\\/4a8bf37c131be4803cb2\\/raw\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"4ceafe530099b9845e4c161443a97b992b2314b0\",\"lastsize\":488511,\"lastcode\":200,\"lastlines\":17594,\"summary\":{\"indicators\":{\"critical\":479,\"high\":13373,\"none\":2246,\"unknown\":181,\"medium\":1518,\"low\":1759}},\"author\":\"BBcan177\",\"website\":\"http:\\/\\/pfblockerng.com\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:55\",\"stamp_updated\":\"2019-12-02 05:00:20\",\"stamp_pulled\":\"2019-12-02
+        05:01:03\",\"stamp_modified\":\"2019-10-11 05:00:43\",\"tags\":[\"csv\"]},{\"sid\":50,\"type\":\"feed\",\"name\":\"BBcan177
+        Malicious IPs\",\"url\":\"https:\\/\\/gist.githubusercontent.com\\/BBcan177\\/bf29d47ea04391cb3eb0\\/raw\\/\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"c913172622d9929372991722e96c2ce94759af92\",\"lastsize\":67173,\"lastcode\":200,\"lastlines\":3077,\"summary\":{\"indicators\":{\"high\":8,\"none\":2321,\"unknown\":198,\"medium\":40,\"low\":151}},\"author\":\"BBcan177\",\"website\":\"http:\\/\\/pfblockerng.com\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-10-20
+        19:01:00\",\"stamp_updated\":\"2019-12-02 05:00:47\",\"stamp_pulled\":\"2019-12-02
+        05:02:49\",\"stamp_modified\":\"2019-08-27 05:02:59\",\"tags\":[\"csv\"]},{\"sid\":35,\"type\":\"feed\",\"name\":\"Blocklist.de
+        Blocklist\",\"url\":\"https:\\/\\/lists.blocklist.de\\/lists\\/all.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"973eacf98f7d0be30c1208b7df797d503546eb21\",\"lastsize\":396389,\"lastcode\":200,\"lastlines\":27821,\"summary\":{\"indicators\":{\"critical\":6,\"high\":192,\"_empty_\":1,\"none\":176630,\"unknown\":301,\"medium\":9346,\"low\":178854}},\"author\":\"Blocklist.de\",\"website\":\"http:\\/\\/www.blocklist.de\\/en\\/index.html\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:00\",\"stamp_updated\":\"2019-11-13 05:00:56\",\"stamp_pulled\":\"2019-12-02
+        05:01:32\",\"stamp_modified\":\"2019-12-02 05:01:32\",\"tags\":[\"csv\",\"abuse\"]},{\"sid\":28,\"type\":\"feed\",\"name\":\"Botvrij.eu
+        - domains\",\"url\":\"http:\\/\\/www.botvrij.eu\\/data\\/ioclist.domain.raw\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"0169b89d5da0f7aa8aea3d38edb0faeadf828688\",\"lastsize\":517,\"lastcode\":200,\"lastlines\":28,\"summary\":{\"indicators\":{\"critical\":1,\"high\":7,\"medium\":5}},\"author\":\"Botvrij.eu\",\"website\":\"http:\\/\\/botvrij.eu\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:35\",\"stamp_pulled\":\"2019-12-02
+        05:01:19\",\"stamp_modified\":\"2018-11-13 05:01:20\",\"tags\":[\"csv\"]},{\"sid\":29,\"type\":\"feed\",\"name\":\"Botvrij.eu
+        - hostnames\",\"url\":\"http:\\/\\/www.botvrij.eu\\/data\\/ioclist.hostname.raw\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"1cd2bfd8e1f47692a2a1ca542ee0bb092924aac0\",\"lastsize\":496,\"lastcode\":200,\"lastlines\":22,\"summary\":{\"indicators\":{\"medium\":1,\"low\":1}},\"author\":\"Botvrij.eu\",\"website\":\"http:\\/\\/botvrij.eu\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:35\",\"stamp_pulled\":\"2019-12-02
+        05:01:19\",\"stamp_modified\":\"2019-06-24 05:00:46\",\"tags\":[\"csv\"]},{\"sid\":30,\"type\":\"feed\",\"name\":\"Botvrij.eu
+        - ips\",\"url\":\"http:\\/\\/www.botvrij.eu\\/data\\/ioclist.ip-dst.raw\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"9a36bdb76f42df65da6430481f20f6297767de22\",\"lastsize\":799,\"lastcode\":200,\"lastlines\":56,\"summary\":{\"indicators\":{\"none\":24,\"medium\":2,\"low\":13}},\"author\":\"Botvrij.eu\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:35\",\"stamp_pulled\":\"2019-12-02
+        05:01:20\",\"stamp_modified\":\"2018-11-13 05:01:21\",\"tags\":[\"csv\"]},{\"sid\":38,\"type\":\"feed\",\"name\":\"Botvrij.eu
+        - urls\",\"url\":\"http:\\/\\/www.botvrij.eu\\/data\\/ioclist.url.raw\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"18bc315b25c036436999881a9df8cfddf011cf13\",\"lastsize\":2070,\"lastcode\":200,\"lastlines\":44,\"summary\":{\"indicators\":{\"critical\":1,\"high\":6,\"medium\":8}},\"author\":\"Botvrij.eu\",\"website\":\"http:\\/\\/botvrij.eu\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:01\",\"stamp_updated\":\"2019-06-06 05:00:52\",\"stamp_pulled\":\"2019-12-02
+        05:01:33\",\"stamp_modified\":\"2018-12-04 05:01:20\",\"tags\":[\"csv\"]},{\"sid\":13,\"type\":\"feed\",\"name\":\"Brute
+        Force Blocker\",\"url\":\"http:\\/\\/danger.rulez.sk\\/projects\\/bruteforceblocker\\/blist.php\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"052418d9b6a1562ea99efed172c19fcc20002b93\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":414,\"summary\":{\"indicators\":{\"critical\":1,\"high\":10,\"none\":10934,\"unknown\":168,\"medium\":566,\"low\":9603}},\"author\":\"Daniel
+        Gerzo\",\"website\":\"http:\\/\\/danger.rulez.sk\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:55\",\"stamp_updated\":\"2019-12-02 05:00:20\",\"stamp_pulled\":\"2019-12-02
+        05:01:03\",\"stamp_modified\":\"2019-12-02 05:01:03\",\"tags\":[\"csv\"]},{\"sid\":26,\"type\":\"feed\",\"name\":\"C&C
+        Domains\",\"url\":\"http:\\/\\/osint.bambenekconsulting.com\\/feeds\\/c2-dommasterlist.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"36d4416ef9a1b549fa335a18a7fc1292843e068f\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":833,\"summary\":{\"indicators\":{\"critical\":12,\"high\":895,\"_empty_\":1,\"none\":4,\"medium\":1269,\"low\":1819}},\"author\":\"Bambenek
+        Consulting\",\"website\":\"http:\\/\\/www.bambenekconsulting.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-07-20 05:00:13\",\"stamp_pulled\":\"2019-12-02
+        05:01:18\",\"stamp_modified\":\"2019-12-02 05:01:18\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":55,\"type\":\"feed\",\"name\":\"C&C
+        Domains\",\"url\":\"https:\\/\\/faf.bambenekconsulting.com\\/feeds\\/dga\\/c2-dommasterlist.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":401,\"lastlines\":0,\"summary\":{\"indicators\":{\"critical\":14,\"high\":1122,\"none\":6,\"medium\":1314,\"low\":1201}},\"author\":\"Bambenek
+        Consulting\",\"website\":\"http:\\/\\/www.bambenekconsulting.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2019-07-21
+        05:00:08\",\"stamp_updated\":\"2019-12-02 05:00:27\",\"stamp_pulled\":\"2019-12-02
+        05:02:59\",\"stamp_modified\":null,\"tags\":[\"csv\",\"malware\"]},{\"sid\":3,\"type\":\"feed\",\"name\":\"C&C
+        IPs\",\"url\":\"http:\\/\\/osint.bambenekconsulting.com\\/feeds\\/c2-ipmasterlist.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"0f1d8235e2d86682f1d161d11b5d1a08e71ba0b9\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":637,\"summary\":{\"indicators\":{\"high\":14,\"none\":1725,\"medium\":182,\"low\":1175}},\"author\":\"Bambenek
+        Consulting\",\"website\":\"http:\\/\\/www.bambenekconsulting.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-07-20 05:00:02\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-12-02 05:00:52\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":54,\"type\":\"feed\",\"name\":\"C&C
+        IPs\",\"url\":\"https:\\/\\/faf.bambenekconsulting.com\\/feeds\\/dga\\/c2-ipmasterlist.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":522,\"lastlines\":0,\"summary\":{\"indicators\":{\"high\":2,\"_empty_\":4,\"none\":2931,\"unknown\":137,\"medium\":76,\"low\":403}},\"author\":\"Bambenek
+        Consulting\",\"website\":\"http:\\/\\/www.bambenekconsulting.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2019-07-21
+        05:00:03\",\"stamp_updated\":\"2019-12-02 05:00:14\",\"stamp_pulled\":\"2019-12-02
+        05:02:55\",\"stamp_modified\":null,\"tags\":[\"csv\",\"malware\"]},{\"sid\":9,\"type\":\"feed\",\"name\":\"CI
+        Bad Guys\",\"url\":\"http:\\/\\/cinsscore.com\\/list\\/ci-badguys.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"034e415fd648d46de908ff2d9023282c943c6937\",\"lastsize\":214582,\"lastcode\":200,\"lastlines\":15000,\"summary\":{\"indicators\":{\"high\":121,\"none\":100186,\"medium\":5190,\"low\":99979}},\"author\":\"cinsscore.com\",\"website\":\"http:\\/\\/cinsscore.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:53\",\"stamp_updated\":\"2019-06-06 05:00:23\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-12-02 05:00:52\",\"tags\":[\"csv\"]},{\"sid\":46,\"type\":\"feed\",\"name\":\"CoinBlocker
+        Domains\",\"url\":\"https:\\/\\/zerodot1.gitlab.io\\/CoinBlockerLists\\/list.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"921f07a9bc28cdecb31bd3ff97809da7a48ed783\",\"lastsize\":727378,\"lastcode\":200,\"lastlines\":35814,\"summary\":{\"indicators\":{\"critical\":458,\"high\":12048,\"_empty_\":5,\"none\":14,\"medium\":10665,\"low\":12706}},\"author\":\"ZeroDot1\",\"website\":\"https:\\/\\/zerodot1.gitlab.io\\/CoinBlockerListsWeb\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-12-02 05:00:45\",\"stamp_pulled\":\"2019-12-02
+        05:02:48\",\"stamp_modified\":\"2019-11-13 05:01:43\",\"tags\":[\"csv\",\"abuse\"]},{\"sid\":40,\"type\":\"feed\",\"name\":\"Compromised
+        IPs\",\"url\":\"https:\\/\\/rules.emergingthreats.net\\/blockrules\\/compromised-ips.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"76b02c80df2792da18a88816cd9e245eabb6d977\",\"lastsize\":6175,\"lastcode\":200,\"lastlines\":432,\"summary\":{\"indicators\":{\"high\":2,\"none\":4963,\"medium\":223,\"low\":6071}},\"author\":\"Emerging
+        Threats\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-07-11 05:00:21\",\"stamp_pulled\":\"2019-12-02
+        05:01:34\",\"stamp_modified\":\"2019-11-29 05:01:53\",\"tags\":[\"csv\"]},{\"sid\":6,\"type\":\"feed\",\"name\":\"Cridex
+        IPs\",\"url\":\"https:\\/\\/feodotracker.abuse.ch\\/blocklist\\/?download=ipblocklist\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"40e4e15a3fce0384c393b9fb28c4e8cb58600e9c\",\"lastsize\":13321,\"lastcode\":200,\"lastlines\":157,\"summary\":{\"indicators\":{\"high\":1,\"none\":431,\"unknown\":22,\"medium\":2,\"low\":23}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:15\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-10-13 05:00:42\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":14,\"type\":\"feed\",\"name\":\"Darklist\",\"url\":\"http:\\/\\/www.darklist.de\\/raw.php\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"0b28b5ef57d5885db422b26431ede488dd1228d6\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":5770,\"summary\":{\"indicators\":{\"critical\":3,\"high\":28,\"none\":11387,\"unknown\":60,\"medium\":652,\"low\":9437}},\"author\":\"Darklist\",\"website\":\"http:\\/\\/darklist.de\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:55\",\"stamp_updated\":\"2019-12-02 05:00:21\",\"stamp_pulled\":\"2019-12-02
+        05:01:04\",\"stamp_modified\":\"2019-12-02 05:01:04\",\"tags\":[\"csv\"]},{\"sid\":17,\"type\":\"feed\",\"name\":\"Dictionary
+        SSH Attacks\",\"url\":\"http:\\/\\/charles.the-haleys.org\\/ssh_dico_attack_hdeny_format.php\\/hostsdeny.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"c76db2e257e3d1eaa0725acdfdeb6cf8784f4100\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":61561,\"summary\":{\"indicators\":{\"critical\":3,\"high\":12,\"none\":34291,\"unknown\":105,\"medium\":1510,\"low\":28131}},\"author\":\"Charles
+        B. Haley\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:56\",\"stamp_updated\":\"2019-12-02 05:00:23\",\"stamp_pulled\":\"2019-12-02
+        05:01:06\",\"stamp_modified\":\"2019-12-02 05:01:06\",\"tags\":[\"csv\",\"attack\"]},{\"sid\":20,\"type\":\"feed\",\"name\":\"Domains
+        Blacklist\",\"url\":\"http:\\/\\/www.joewein.net\\/dl\\/bl\\/dom-bl.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"dbdea82995724005d7799e433b8320cc341a4cc3\",\"lastsize\":12899,\"lastcode\":200,\"lastlines\":767,\"summary\":{\"indicators\":{\"critical\":95,\"high\":3406,\"_empty_\":26,\"medium\":1949,\"low\":1017}},\"author\":\"joewein.de\",\"website\":\"http:\\/\\/www.joewein.net\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:56\",\"stamp_updated\":\"2019-06-06 05:00:32\",\"stamp_pulled\":\"2019-12-02
+        05:01:07\",\"stamp_modified\":\"2019-12-02 05:01:07\",\"tags\":[\"csv\"]},{\"sid\":7,\"type\":\"feed\",\"name\":\"Dyre
+        Botnet IPs\",\"url\":\"https:\\/\\/sslbl.abuse.ch\\/blacklist\\/dyre_sslipblacklist_aggressive.csv\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":404,\"lastlines\":0,\"summary\":{\"indicators\":{\"none\":68,\"unknown\":14,\"medium\":3,\"low\":3}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:16\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2018-11-10 05:00:44\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":24,\"type\":\"feed\",\"name\":\"Feodo
+        Tracker\",\"url\":\"https:\\/\\/feodotracker.abuse.ch\\/blocklist\\/?download=snort\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"40e4e15a3fce0384c393b9fb28c4e8cb58600e9c\",\"lastsize\":13321,\"lastcode\":200,\"lastlines\":157,\"summary\":{\"indicators\":{\"high\":1,\"none\":433,\"unknown\":22,\"medium\":2,\"low\":24}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-12-02 05:00:26\",\"stamp_pulled\":\"2019-12-02
+        05:01:08\",\"stamp_modified\":\"2019-09-25 05:01:21\",\"tags\":[\"malware\"]},{\"sid\":15,\"type\":\"feed\",\"name\":\"GreenSnow
+        Blacklist\",\"url\":\"http:\\/\\/blocklist.greensnow.co\\/greensnow.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"fd67c6f2f6572d885ca968b84e60acef80e256a1\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":1518,\"summary\":{\"indicators\":{\"critical\":1,\"high\":291,\"_empty_\":9,\"none\":33919,\"medium\":2065,\"low\":41592}},\"author\":\"GreenSnow\",\"website\":\"https:\\/\\/greensnow.co\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:55\",\"stamp_updated\":\"2019-06-06 05:00:29\",\"stamp_pulled\":\"2019-12-02
+        05:01:04\",\"stamp_modified\":\"2019-12-02 05:01:04\",\"tags\":[\"csv\"]},{\"sid\":51,\"type\":\"feed\",\"name\":\"Hancitor
+        IPs\",\"url\":\"\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":400,\"lastlines\":0,\"summary\":{\"indicators\":{\"none\":553,\"medium\":28,\"low\":140}},\"author\":\"LinuxTracker\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-10-21
+        05:00:02\",\"stamp_updated\":\"2019-05-22 05:00:24\",\"stamp_pulled\":\"2019-12-02
+        05:02:49\",\"stamp_modified\":null,\"tags\":[\"csv\",\"malware\",\"proxy\",\"attack\",\"spam\",\"abuse\"]},{\"sid\":53,\"type\":\"feed\",\"name\":\"Hancitor
+        IPs\",\"url\":\"https:\\/\\/raw.githubusercontent.com\\/LinuxTracker\\/Blocklists\\/master\\/HancitorIPs.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"3727837f4fab43a79129c2b85a6abf638cc479a6\",\"lastsize\":41694,\"lastcode\":200,\"lastlines\":865,\"summary\":{\"indicators\":{\"high\":1,\"none\":706,\"unknown\":24,\"medium\":9,\"low\":31}},\"author\":\"LinuxTracker\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2019-05-23
+        05:00:46\",\"stamp_updated\":\"2019-12-02 05:00:47\",\"stamp_pulled\":\"2019-12-02
+        05:02:49\",\"stamp_modified\":\"2019-11-21 05:04:21\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":34,\"type\":\"feed\",\"name\":\"High
+        Confidence IPv4 Drop List\",\"url\":\"https:\\/\\/threatintel.stdominics.sa.edu.au\\/droplist_high_confidence.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"3ebc972669050a09725e0c1aedbcd95bbad88462\",\"lastsize\":27923,\"lastcode\":200,\"lastlines\":1952,\"summary\":{\"indicators\":{\"critical\":2,\"high\":10,\"none\":7929,\"unknown\":148,\"medium\":376,\"low\":6642}},\"author\":\"St.
+        Dominics Priory College - Australia\",\"website\":\"https:\\/\\/threatintel.stdominics.sa.edu.au\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:59\",\"stamp_updated\":\"2019-12-02 05:00:29\",\"stamp_pulled\":\"2019-12-02
+        05:01:31\",\"stamp_modified\":\"2019-12-02 05:01:31\",\"tags\":[\"csv\"]},{\"sid\":25,\"type\":\"feed\",\"name\":\"Immortal
+        Malware Domains\",\"url\":\"http:\\/\\/mirror2.malwaredomains.com\\/files\\/immortal_domains.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":500,\"lastlines\":0,\"summary\":{\"indicators\":{\"high\":4,\"none\":1,\"medium\":15,\"low\":9}},\"author\":\"DNS-BH\",\"website\":\"http:\\/\\/www.malwaredomains.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:34\",\"stamp_pulled\":\"2019-12-02
+        05:01:18\",\"stamp_modified\":\"2019-10-04 05:00:57\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":16,\"type\":\"feed\",\"name\":\"IPSpamList\",\"url\":\"http:\\/\\/www.ipspamlist.com\\/public_feeds.csv\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"7eaa6b62c40d2ee2d77f319eda63524b55801a02\",\"lastsize\":3972,\"lastcode\":200,\"lastlines\":60,\"summary\":{\"indicators\":{\"high\":7,\"none\":2137,\"unknown\":31,\"medium\":104,\"low\":1532}},\"author\":\"NoVirusThanks\",\"website\":\"http:\\/\\/www.ipspamlist.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:56\",\"stamp_updated\":\"2019-12-02 05:00:22\",\"stamp_pulled\":\"2019-12-02
+        05:01:04\",\"stamp_modified\":\"2019-12-02 05:01:04\",\"tags\":[\"csv\",\"attack\"]},{\"sid\":37,\"type\":\"feed\",\"name\":\"Malicious
+        EXE IPs\",\"url\":\"http:\\/\\/www.urlvir.com\\/export-ip-addresses\\/\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"aef30097c7e1a23aed9b76686c8d4cec246d874c\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":177,\"summary\":{\"indicators\":{\"high\":12,\"none\":1217,\"unknown\":28,\"medium\":54,\"low\":559}},\"author\":\"NoVirusThanks\",\"website\":\"http:\\/\\/www.urlvir.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:01\",\"stamp_updated\":\"2019-12-02 05:00:40\",\"stamp_pulled\":\"2019-12-02
+        05:01:33\",\"stamp_modified\":\"2019-12-02 05:01:33\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":36,\"type\":\"feed\",\"name\":\"Malicious
+        EXE URLs\",\"url\":\"http:\\/\\/www.urlvir.com\\/export-hosts\\/\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"b3aa9ead2e32eb2ddaedbf476cf99fd12e1b8af6\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":181,\"summary\":{\"indicators\":{\"critical\":235,\"high\":2444,\"none\":213,\"unknown\":19,\"medium\":4681,\"low\":1790}},\"author\":\"NoVirusThanks\",\"website\":\"http:\\/\\/www.urlvir.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:01\",\"stamp_updated\":\"2019-12-02 05:00:39\",\"stamp_pulled\":\"2019-12-02
+        05:01:33\",\"stamp_modified\":\"2019-12-02 05:01:33\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":42,\"type\":\"feed\",\"name\":\"Malware
+        Corpus Tracker\",\"url\":\"https:\\/\\/tracker.h3x.eu\\/api\\/sites_1day.php\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":500,\"lastlines\":0,\"summary\":{\"indicators\":{\"critical\":755,\"high\":2887,\"none\":4,\"medium\":487}},\"author\":\"Malware
+        Corpus Tracker\",\"website\":\"http:\\/\\/tracker.h3x.eu\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-12-02 05:00:43\",\"stamp_pulled\":\"2019-12-02
+        05:02:48\",\"stamp_modified\":\"2019-11-17 05:01:58\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":22,\"type\":\"feed\",\"name\":\"Malware
+        Domains\",\"url\":\"http:\\/\\/malc0de.com\\/bl\\/ZONES\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"775b23240c19f3152b1c26c61107b631a43b0323\",\"lastsize\":3574,\"lastcode\":200,\"lastlines\":46,\"summary\":{\"indicators\":{\"critical\":20,\"high\":212,\"none\":4,\"medium\":272,\"low\":150}},\"author\":\"malc0de\",\"website\":\"http:\\/\\/malc0de.com\\/dashboard\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-12-02 05:00:26\",\"stamp_pulled\":\"2019-12-02
+        05:01:08\",\"stamp_modified\":\"2019-05-24 05:00:53\",\"tags\":[\"malware\"]},{\"sid\":23,\"type\":\"feed\",\"name\":\"Malware
+        Domains List\",\"url\":\"http:\\/\\/www.malwaredomainlist.com\\/mdlcsv.php\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"ed4416c63950937838ff62801c4a9df9c70be098\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":2257,\"summary\":{\"indicators\":null},\"author\":\"malwaredomainslist.com\",\"website\":\"http:\\/\\/www.malwaredomainlist.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:34\",\"stamp_pulled\":\"2019-12-02
+        05:01:08\",\"stamp_modified\":\"2019-05-05 05:00:57\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":44,\"type\":\"feed\",\"name\":\"Monero
+        Miner\",\"url\":\"https:\\/\\/raw.githubusercontent.com\\/Hestat\\/minerchk\\/master\\/hostslist.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"43ae86d068d08cd7a02ef55b022a40b6c555430f\",\"lastsize\":738,\"lastcode\":200,\"lastlines\":40,\"summary\":{\"indicators\":{\"high\":6,\"medium\":23,\"low\":9}},\"author\":\"Minerchk\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-06-30 05:00:23\",\"stamp_pulled\":\"2019-12-02
+        05:02:48\",\"stamp_modified\":\"2018-08-27 08:02:43\",\"tags\":[\"csv\",\"abuse\"]},{\"sid\":45,\"type\":\"feed\",\"name\":\"NoCoin\",\"url\":\"https:\\/\\/raw.githubusercontent.com\\/hoshsadiq\\/adblock-nocoin-list\\/master\\/hosts.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"743e1a8fa9b0d9eb5910250dfb4bffe500728adc\",\"lastsize\":18400,\"lastcode\":200,\"lastlines\":699,\"summary\":{\"indicators\":{\"critical\":50,\"high\":227,\"none\":1,\"medium\":209,\"low\":216}},\"author\":\"Hoshsadiq\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-12-02 05:00:44\",\"stamp_pulled\":\"2019-12-02
+        05:02:48\",\"stamp_modified\":\"2019-11-08 05:01:27\",\"tags\":[\"\"]},{\"sid\":18,\"type\":\"feed\",\"name\":\"OpenPhish\",\"url\":\"https:\\/\\/openphish.com\\/feed.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"08a91bd9e9d0db295cfb37de8af86d4887a37e52\",\"lastsize\":153316,\"lastcode\":200,\"lastlines\":1858,\"summary\":{\"indicators\":{\"critical\":351,\"high\":5608,\"_empty_\":3,\"none\":2,\"unknown\":10,\"medium\":52314,\"low\":36}},\"author\":\"OpenPhish\",\"website\":\"https:\\/\\/openphish.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:56\",\"stamp_updated\":\"2019-12-02 05:00:26\",\"stamp_pulled\":\"2019-12-02
+        05:01:06\",\"stamp_modified\":\"2019-12-02 05:01:06\",\"tags\":[\"spam\"]},{\"sid\":27,\"type\":\"feed\",\"name\":\"PhishTank\",\"url\":\"http:\\/\\/data.phishtank.com\\/data\\/online-valid.csv\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"211c56f27ab23f5cbb5677daabeb86da3410cf0a\",\"lastsize\":2157002,\"lastcode\":200,\"lastlines\":10222,\"summary\":{\"indicators\":{\"critical\":455,\"high\":3742,\"none\":13,\"unknown\":26,\"medium\":31616,\"low\":14}},\"author\":\"PhishTank\",\"website\":\"https:\\/\\/www.phishtank.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-12-02 05:00:28\",\"stamp_pulled\":\"2019-12-02
+        05:01:19\",\"stamp_modified\":\"2019-12-02 05:01:19\",\"tags\":[\"csv\",\"spam\"]},{\"sid\":4,\"type\":\"feed\",\"name\":\"Ransomware
+        Domains\",\"url\":\"https:\\/\\/ransomwaretracker.abuse.ch\\/downloads\\/RW_DOMBL.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"905da0e6707c9a2211ca944cf5604fab87173b93\",\"lastsize\":51699,\"lastcode\":200,\"lastlines\":1910,\"summary\":{\"indicators\":{\"critical\":1459,\"high\":362,\"medium\":73,\"low\":8}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:15\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-12-02 05:00:52\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":5,\"type\":\"feed\",\"name\":\"Ransomware
+        IPs\",\"url\":\"https:\\/\\/ransomwaretracker.abuse.ch\\/downloads\\/RW_IPBL.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"df742d694c933b689ac0cf3d9029ac06e64a22b9\",\"lastsize\":5083,\"lastcode\":200,\"lastlines\":336,\"summary\":{\"indicators\":{\"high\":1,\"none\":329,\"unknown\":2,\"medium\":16,\"low\":95}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:15\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-12-02 05:00:52\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":33,\"type\":\"feed\",\"name\":\"Ransomware
+        URLs\",\"url\":\"https:\\/\\/ransomwaretracker.abuse.ch\\/downloads\\/RW_URLBL.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"cd702b1165b9d9a7d0281f2c031a47ea178bd63b\",\"lastsize\":375157,\"lastcode\":200,\"lastlines\":11574,\"summary\":{\"indicators\":{\"critical\":496,\"high\":7242,\"medium\":3807}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:59\",\"stamp_updated\":\"2019-12-02 05:00:28\",\"stamp_pulled\":\"2019-12-02
+        05:01:30\",\"stamp_modified\":\"2019-12-02 05:01:30\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":43,\"type\":\"feed\",\"name\":\"Simple
+        Malware List\",\"url\":\"https:\\/\\/s3.amazonaws.com\\/lists.disconnect.me\\/simple_malware.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"727a303a687357216ccdefca8b950c5b46e23e82\",\"lastsize\":110,\"lastcode\":200,\"lastlines\":4,\"summary\":{\"indicators\":{\"high\":2,\"medium\":6}},\"author\":\"Disconnect.me\",\"website\":\"https:\\/\\/disconnect.me\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:02\",\"stamp_updated\":\"2019-12-02 05:00:44\",\"stamp_pulled\":\"2019-12-02
+        05:02:48\",\"stamp_modified\":\"2019-04-01 05:00:49\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":8,\"type\":\"feed\",\"name\":\"SSL
+        BL\",\"url\":\"https:\\/\\/sslbl.abuse.ch\\/blacklist\\/sslipblacklist.csv\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"753b42312aa6f51f77d509fc6c0126300e028b4c\",\"lastsize\":4077,\"lastcode\":200,\"lastlines\":99,\"summary\":{\"indicators\":{\"high\":4,\"none\":101,\"unknown\":5,\"medium\":4,\"low\":33}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:16\",\"stamp_pulled\":\"2019-12-02
+        05:00:52\",\"stamp_modified\":\"2019-12-02 05:00:52\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":19,\"type\":\"feed\",\"name\":\"Suspicious
+        Domains\",\"url\":\"https:\\/\\/secure.dshield.org\\/feeds\\/suspiciousdomains_Low.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"63d52e0902496303aaee76cc088ff144f6174d44\",\"lastsize\":63137,\"lastcode\":200,\"lastlines\":2622,\"summary\":{\"indicators\":{\"critical\":1507,\"high\":1026,\"none\":6,\"medium\":355,\"low\":163}},\"author\":\"DShield\",\"website\":\"https:\\/\\/dshield.org\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:56\",\"stamp_updated\":\"2019-06-06 05:00:32\",\"stamp_pulled\":\"2019-12-02
+        05:01:07\",\"stamp_modified\":\"2019-12-02 05:01:07\",\"tags\":[\"csv\"]},{\"sid\":21,\"type\":\"feed\",\"name\":\"Suspicious
+        Dynamic DNS Providers\",\"url\":\"http:\\/\\/dns-bh.sagadc.org\\/dynamic_dns.txt\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"561491591272fd80ffe1f36aa68dc77a03040905\",\"lastsize\":148948,\"lastcode\":200,\"lastlines\":3203,\"summary\":{\"indicators\":{\"high\":10,\"none\":1,\"medium\":14,\"low\":9}},\"author\":\"dns-bh.sagadc.org\",\"website\":\"\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:57\",\"stamp_updated\":\"2019-06-06 05:00:33\",\"stamp_pulled\":\"2019-12-02
+        05:01:08\",\"stamp_modified\":\"2019-08-27 05:00:41\",\"tags\":[\"csv\"]},{\"sid\":32,\"type\":\"feed\",\"name\":\"Talos
+        IP Blacklist\",\"url\":\"http:\\/\\/www.talosintelligence.com\\/documents\\/ip-blacklist\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"\",\"lastsize\":0,\"lastcode\":500,\"lastlines\":0,\"summary\":{\"indicators\":{\"high\":4,\"none\":4483,\"medium\":293,\"low\":3508}},\"author\":\"Cisco
+        Talos\",\"website\":\"https:\\/\\/www.talosintelligence.com\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:58\",\"stamp_updated\":\"2019-06-05 05:00:41\",\"stamp_pulled\":\"2019-12-02
+        05:01:30\",\"stamp_modified\":\"2019-12-02 05:01:30\",\"tags\":[\"csv\"]},{\"sid\":2,\"type\":\"feed\",\"name\":\"Tor
+        IPs\",\"url\":\"https:\\/\\/www.dan.me.uk\\/torlist\\/\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"c8d6bc4c1ca369c4833cd471344138be8d502754\",\"lastsize\":0,\"lastcode\":200,\"lastlines\":7070,\"summary\":{\"indicators\":{\"critical\":2,\"high\":18,\"_empty_\":107,\"none\":24478,\"unknown\":104,\"medium\":1473,\"low\":5376}},\"author\":\"dan.me.uk\",\"website\":\"https:\\/\\/www.dan.me.uk\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:38:52\",\"stamp_updated\":\"2019-12-02 05:00:14\",\"stamp_pulled\":\"2019-12-02
+        05:00:51\",\"stamp_modified\":\"2019-12-02 05:00:51\",\"tags\":[\"csv\",\"proxy\"]},{\"sid\":39,\"type\":\"feed\",\"name\":\"URLhaus\",\"url\":\"https:\\/\\/urlhaus.abuse.ch\\/downloads\\/text\\/\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"7f270e02cb3cfa6aa29a78dbbfc578582cf820ef\",\"lastsize\":13408059,\"lastcode\":200,\"lastlines\":252707,\"summary\":{\"indicators\":{\"critical\":36891,\"high\":121629,\"none\":5,\"unknown\":8,\"medium\":76270,\"low\":29}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-08-27
+        07:39:01\",\"stamp_updated\":\"2019-12-02 05:00:43\",\"stamp_pulled\":\"2019-12-02
+        05:01:34\",\"stamp_modified\":\"2019-12-02 05:01:34\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":49,\"type\":\"feed\",\"name\":\"Zerodot1's
+        Mining IPs Feed\",\"url\":\"https:\\/\\/zerodot1.gitlab.io\\/CoinBlockerListsWeb\\/badipslist.html\",\"documentation\":\"\",\"pricing\":\"donationware\",\"lasthash\":null,\"lastsize\":null,\"lastcode\":null,\"lastlines\":null,\"summary\":{\"indicators\":{\"critical\":44,\"high\":479,\"none\":290522,\"unknown\":31570,\"medium\":4813,\"low\":25788}},\"author\":\"ZeroDot1\",\"website\":\"https:\\/\\/zerodot1.gitlab.io\\/CoinBlockerListsWeb\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-10-12
+        04:03:05\",\"stamp_updated\":\"2019-12-02 05:00:51\",\"stamp_pulled\":null,\"stamp_modified\":null,\"tags\":[\"csv\",\"abuse\"]},{\"sid\":47,\"type\":\"feed\",\"name\":\"Zeus
+        Bad Domains\",\"url\":\"https:\\/\\/zeustracker.abuse.ch\\/blocklist.php?download=baddomains\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"d444232d5db1ed4e6d504e8e0361048bfb2b4297\",\"lastsize\":53,\"lastcode\":200,\"lastlines\":0,\"summary\":{\"indicators\":{\"critical\":1,\"high\":1,\"medium\":2,\"low\":2}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-09-02
+        06:47:54\",\"stamp_updated\":\"2019-12-02 05:00:10\",\"stamp_pulled\":\"2019-12-02
+        05:02:49\",\"stamp_modified\":\"2019-08-22 05:02:51\",\"tags\":[\"csv\",\"malware\"]},{\"sid\":48,\"type\":\"feed\",\"name\":\"Zeus
+        Bad IPs\",\"url\":\"https:\\/\\/zeustracker.abuse.ch\\/blocklist.php?download=badips\",\"documentation\":\"\",\"pricing\":\"free\",\"lasthash\":\"d444232d5db1ed4e6d504e8e0361048bfb2b4297\",\"lastsize\":53,\"lastcode\":200,\"lastlines\":0,\"summary\":{\"indicators\":{\"high\":1,\"none\":140,\"unknown\":13,\"low\":6}},\"author\":\"abuse.ch\",\"website\":\"https:\\/\\/abuse.ch\\/\",\"logo\":null,\"email\":\"\",\"stamp_added\":\"2018-09-02
+        06:47:54\",\"stamp_updated\":\"2019-12-02 05:00:10\",\"stamp_pulled\":\"2019-12-02
+        05:02:49\",\"stamp_modified\":\"2019-08-22 05:02:52\",\"tags\":[\"csv\",\"malware\"]}];\n\t\t\n\t\t//
+        display specified feed first\n\t\tvar topfeed;\n\t\t\t\tif (topfeed) {\n\t\t\t$('#topfeed').html(feedHtml(topfeed,
+        true));\n\t\t}\n\t\t\n\t\t// add the rest of the feeds\n\t\tfor (var i = 0;
+        i < feeds.length; i++) {\n\t\t\tvar html = feedHtml(feeds[i]);\n\t\t\t$(html).data('name',
+        feeds[i].name).data('author', feeds[i].author).appendTo('#results');\n\t\t}\n\t});\n\t\n\tfunction
+        feedHtml(feed, top) {\n\t\tvar html = '';\n\t\t\n\t\t// make sure pricing
+        is valid\n\t\tif (feed.pricing != 'sponsored' && feed.pricing != 'donationware'
+        && feed.pricing != 'premium') {\n\t\t\tfeed.pricing = 'free';\n\t\t}\n\t\t\n\t\tif
+        (top == true) {\n\t\t\thtml += \"<div class='topitem'>\";\n\t\t} else {\n\t\t\thtml
+        += \"<div class='item\";\n\t\t\tif (feed.pricing != 'free') {\n\t\t\t\thtml
+        += \" \" + feed.pricing;\n\t\t\t}\n\t\t\thtml += \"'>\";\n\t\t}\n\t\t\thtml
+        += \"<div class='name'>\" + feed.name + \"</div>\";\n\t\t\t\n\t\t\t// source
+        type and tags\n\t\t\thtml += \"<span class='type'>\" + feed.type + \"</span>\";\n\t\t\tfor
+        (var t = 0; t < feed.tags.length; t++) {\n\t\t\t\tif (feed.tags[t]) {\n\t\t\t\t\thtml
+        += \"<span class='tag'>\" + feed.tags[t] + \"</span>\";\n\t\t\t\t}\n\t\t\t}\n\t\t\tif
+        (feed.pricing != 'free') {\n\t\t\t\thtml += \"<span class='tag \" + feed.pricing
+        + \"'>\" + ucfirst(feed.pricing) + \"</span>\";\n\t\t\t}\n\t\t\t\n\t\t\t//
+        organization info\n\t\t\tif (feed.author) {\n\t\t\t\thtml += \"<div class='infoblock'>\";\n\t\t\t\t\thtml
+        += \"<div class='small'>Managed by:</div>\";\n\t\t\t\t\thtml += \"<div class='author'>\"
+        + feed.author + \"</div>\";\n\t\t\t\t\tif (feed.website) {\n\t\t\t\t\t\thtml
+        += \"<a href=\\\"\" + feed.website + \"\\\" target='_blank'><i class='fa fa-chain'></i></a>\";\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (feed.email) {\n\t\t\t\t\t\thtml += \"<a href=\\\"mailto:\" + feed.email +
+        \"\\\" target='_blank'><i class='fa fa-envelope-o'></i></a>\";\n\t\t\t\t\t}\n\t\t\t\thtml
+        += \"</div>\";\n\t\t\t}\n\t\t\t\n\t\t\t// last fetch info\n\t\t\tif (feed.lastcode)
+        {\n\t\t\t\thtml += \"<div class='infoblock'>\";\n\t\t\t\t\thtml += \"<div
+        class='small'>Last fetch:</div>\";\n\t\t\t\t\thtml += \"<div><label>Size:</label>\"
+        + feed.lastsize + \"</div>\";\n\t\t\t\t\thtml += \"<div><label>Lines:</label>\"
+        + feed.lastlines + \"</div>\";\n\t\t\t\t\thtml += \"<div><label>Status Code:</label>\";\n\t\t\t\t\t\tif
+        (feed.lastcode == 200) {\n\t\t\t\t\t\t\thtml += \"<div class='code success'>\"
+        + feed.lastcode + \"</div>\";\n\t\t\t\t\t\t} else if (feed.lastcode >= 300
+        && feed.lastcode < 400) {\n\t\t\t\t\t\t\thtml += \"<div class='code warning'>\"
+        + feed.lastcode + \"</div>\";\n\t\t\t\t\t\t} else if (feed.lastcode >= 400
+        && feed.lastcode < 600) {\n\t\t\t\t\t\t\thtml += \"<div class='code error'>\"
+        + feed.lastcode + \"</div>\";\n\t\t\t\t\t\t}\n\t\t\t\t\thtml += \"</div>\";\n\t\t\t\thtml
+        += \"</div>\";\n\t\t\t}\n\t\t\t\n\t\t\t// feed events\n\t\t\tif (feed.stamp_added)
+        {\n\t\t\t\thtml += \"<div class='events'>\";\n\t\t\t\t\thtml += \"<div class='small'>Events:</div>\";\n\t\t\t\t\tif
+        (feed.stamp_added) {\n\t\t\t\t\t\thtml += \"<div>\";\n\t\t\t\t\t\t\thtml +=
+        \"<label><i class='fa fa-plus'></i> Added:</label>\" + relativeTime(feed.stamp_added);\n\t\t\t\t\t\thtml
+        += \"</div>\";\n\t\t\t\t\t}\n\t\t\t\t\tif (feed.stamp_pulled) {\n\t\t\t\t\t\thtml
+        += \"<div>\";\n\t\t\t\t\t\t\thtml += \"<label><i class='fa fa-download'></i>
+        Pulled:</label>\" + relativeTime(feed.stamp_pulled);\n\t\t\t\t\t\thtml +=
+        \"</div>\";\n\t\t\t\t\t}\n\t\t\t\t\tif (feed.stamp_modified) {\n\t\t\t\t\t\thtml
+        += \"<div>\";\n\t\t\t\t\t\t\thtml += \"<label><i class='fa fa-refresh'></i>
+        Modified:</label>\" + relativeTime(feed.stamp_modified);\n\t\t\t\t\t\thtml
+        += \"</div>\";\n\t\t\t\t\t}\n\t\t\t\thtml += \"</div>\";\n\t\t\t}\n\t\t\t\n\t\t\t//
+        feed stats\n\t\t\thtml += \"<div class='stats'>\";\n\t\t\t\t\n\t\t\t\t// risk
+        graph\n\t\t\t\tif (feed.summary && feed.summary.indicators) {\n\t\t\t\t\tvar
+        total = 0;\n\t\t\t\t\tfor (var risk in feed.summary.indicators) {\n\t\t\t\t\t\ttotal
+        += feed.summary.indicators[risk];\n\t\t\t\t\t}\n\t\t\t\t\ttotal = formatTotal(total);\n\t\t\t\t\thtml
+        += \"<span class='total'>\" + total + \"</span>\";\n\t\t\t\t\thtml += getRiskGraph(feed.summary.indicators,
+        true);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t// download\n\t\t\t\tif (feed.url) {\n\t\t\t\t\tvar
+        action = \"Download\";\n\t\t\t\t\tif (feed.pricing != 'free') {\n\t\t\t\t\t\taction
+        = \"Get Access\";\n\t\t\t\t\t}\n\t\t\t\t\tif (feed.pricing == 'premium') {\n\t\t\t\t\t\taction
+        = \"Purchase\";\n\t\t\t\t\t}\n\t\t\t\t\thtml += \"<a class='button \" + feed.pricing
+        + \"' href=\\\"\" + feed.url + \"\\\" target='_blank'>\" + action + \"</a>\";\n\t\t\t\t}\n\t\t\t\t\n\t\t\thtml
+        += \"</div>\";\n\t\t\t\n\t\thtml += \"</div>\";\n\t\t\n\t\treturn html;\n\t}\n\t\n\tfunction
+        formatTotal(total) {\n\t\t\n\t\t// add scale\n\t\tif (total >= 1000000) {\n\t\t\ttotal
+        /= 1000000;\n\t\t\ttotal = Math.round(total);\n\t\t\ttotal += 'M';\n\t\t}
+        else if (total >= 1000) {\n\t\t\ttotal /= 1000;\n\t\t\ttotal = Math.round(total);\n\t\t\ttotal
+        += 'K';\n\t\t}\n\t\t\n\t\t// use the right terms\n\t\tif (total == 1) {\n\t\t\ttotal
+        += \" IOC\";\n\t\t} else {\n\t\t\ttotal += \" IOCs\";\n\t\t}\n\t\t\n\t\treturn
+        total;\n\t}\n</script>\n\n<div id='tagline'><span style='color:#a9b6cc;'>Free
+        and open-source </span>threat intelligence feeds.</div>\n<div id='searchbox'>\n\t<i
+        class='fa fa-search'></i>\n\t<input id='search' type='text' placeholder='Search
+        feed name or author' autofocus autocomplete='off'>\n</div>\n\n<div id='results'>\n\t\n</div>\n\n\t\t</div>\n\t\t\n\t\t<footer>\n\t\t\t<a
+        href='https://pulsedive.com' target='_blank'>&copy;2018 Pulsedive</a>\n\t\t\t<a
+        class='right' href='https://threatfeeds.io/sitemap.php' target='_blank'>Sitemap</a>\n\t\t</footer>\n\t\t\n\t</body>\n</html>\n\n"
+    http_version: 
+  recorded_at: Mon, 02 Dec 2019 06:25:00 GMT
+- request:
+    method: get
+    uri: https://gist.githubusercontent.com/BBcan177/bf29d47ea04391cb3eb0/raw/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - W/"e460433ee048a4f4c8b9bf0c1b0dfbbe9be2d3dcd51e3d4da0c79de82c9f5eaa"
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      Content-Encoding:
+      - gzip
+      X-Github-Request-Id:
+      - 5FAC:5B80:32893D:35CD33:5DE4AE3C
+      Content-Length:
+      - '29580'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 02 Dec 2019 06:25:00 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-bom18226-BOM
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1575267901.713551,VS0,VE185
+      Vary:
+      - Authorization,Accept-Encoding, Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - 8e53f4b9a0a26d77612c1b2d2a9777a58665e1a4
+      Expires:
+      - Mon, 02 Dec 2019 06:30:00 GMT
+      Source-Age:
+      - '0'
+    body:
+      encoding: ASCII-8BIT
+      string: "185.14.31.9       # ROVNIX loader\n61.67.114.73      # Regin\n202.71.144.113
+        \   # Regin\n203.199.89.80     # Regin\n194.183.237.145   # Regin\n94.23.58.217
+        \     # SoakSo\n5.9.188.148       # Dridex - http://securityblog.s21sec.com/2014/11/dridex-learns-new-trick-p2p-over-http.html\n46.4.232.200
+        \     # Dridex\n37.1.208.21       # Dridex\n108.61.198.191    # Dridex\n188.40.240.20
+        \    # Dridex\n37.1.215.144      # Dridex\n188.116.40.35     # Dridex\n80.79.114.72
+        \     # Dridex\n78.140.164.160    # Dridex\n54.84.136.229     # Dridex\n130.209.101.62
+        \   # Dridex\n209.54.58.186     # Cridex - http://stopmalvertising.com/malware-reports/analysis-of-dridex-cridex-feodo-bugat.html\n91.121.162.48
+        \    # Cridex\n89.31.144.214     # Cridex\n89.188.121.106    # Cridex\n72.249.190.70
+        \    # Cridex\n50.56.200.226     # Cridex\n212.111.1.212.226 # Cridex\n194.28.132.33
+        \    # Cridex\n173.203.208.139   # Cridex\n5.135.28.118      # Cridex\n37.187.156.123
+        \   # Cridex\n62.76.44.174      # Cridex\n46.165.241.0/24   # Cridex\n80.94.160.129
+        \    # Dridex - http://stopmalvertising.com/spam-scams/fake-bh-live-e-tickets-for-peter-pan-lead-to-dridex.html\n92.222.46.165
+        \    # Dridex\n108.166.70.44     # Dridex\n130.153.198.148   # Dridex\n184.106.64.151
+        \   # Dridex\n188.226.255.127   # Dridex\n87.248.244.72     # Dridex\n195.225.168.72
+        \   # Dridex\n217.21.42.239     # Dridex\n74.53.91.100      # Dridex\n80.240.137.88
+        \    # Dridex\n82.194.167.2      # Dridex\n203.131.222.102   # US_CERT TA14-353A:
+        Targeted Destructive Malware\n217.96.33.164     # US_CERT TA14-353A\n88.53.215.64
+        \     # US_CERT TA14-353A\n200.87.126.116    # US_CERT TA14-353A\n58.185.154.99
+        \    # US_CERT TA14-353A\n212.31.102.100    # US_CERT TA14-353A\n208.105.226.235
+        \  # US_CERT TA14-353A\n198.252.73.124    # Zeus - http://blog.phishlabs.com/one-man-operation-leverages-phishing-and-browser-alerts-to-distribute-new-variant-of-zeus-banking-trojan\n95.211.20.182
+        \    # Zeus\n5.196.41.3        # http://www.cyphort.com/isc-org-infected/\n95.211.226.158\n93.179.68.167\n149.12.71.2
+        \      # http://securelist.com/blog/research/68750/equation-the-death-star-of-malware-galaxy/\n190.242.96.212\n190.60.202.4\n195.128.235.227\n195.128.235.231\n195.128.235.233\n195.128.235.235\n195.81.34.67\n202.95.84.33\n203.150.231.49\n203.150.231.73\n210.81.52.120\n212.61.54.239\n41.222.35.70\n62.216.152.67\n64.76.82.52\n80.77.4.3\n81.31.34.175\n81.31.36.174\n81.31.38.163\n81.31.38.166\n84.233.205.99\n85.112.1.83\n87.255.38.2\n89.18.177.3\n103.41.124.0/24
+        \    # https://www.fireeye.com/blog/threat-research/2015/02/anatomy_of_a_brutef.html\n103.25.9.228\n103.25.9.229\n179.111.212.221
+        \    # http://vulnerabledisclosures.blogspot.ca/2015/03/large-botnet-exposed.html\n81.149.12.77\n89.156.44.210\n38.108.61.227\n37.110.214.124\n86.126.135.242\n80.82.64.201\n112.211.182.241\n125.62.97.218\n95.31.88.21\n37.139.6.7
+        \         # http://vulnerabledisclosures.blogspot.ca/2015/02/theory-utilizing-porn-sites-to-infect.html\n80.82.65.0/24
+        \      # http://blog.trendmicro.com/trendlabs-security-intelligence/newposthings-has-new-pos-things/\n80.82.65.112
+        \       # Blocking full /24 for good measure\n91.121.87.188\n62.68.96.173\n192.10.10.1\n5.39.88.204\n80.82.65.23\n85.143.217.196
+        \     # http://blog.fox-it.com/2015/04/07/liveblog-malvertising-from-google-advertisements-via-possibly-compromised-reseller/\n62.76.44.174\n174.36.217.82\n85.143.217.196\n87.236.215.246
+        \     # http://www.securityweek.com/russia-linked-hackers-used-two-zero-days-recent-targeted-attack-fireeye\n62.76.177.179
+        \      # https://blog.sucuri.net/     (Magento ShopLift in the Wild)\n185.22.232.218\n217.71.50.57
+        \       # https://www.recordedfuture.com/lizard-squad-analysis/\n5.39.90.132\n198.100.144.122\n194.54.81.162
+        \      # http://www.welivesecurity.com/wp-content/uploads/2015/04/mumblehard.pdf\n194.54.81.163\n194.54.81.164\n194.54.81.165\n194.54.81.166\n184.106.208.157\n50.28.24.79\n67.221.183.105\n195.242.70.4\n151.236.11.167
+        \     # http://blogs.cisco.com/security/talos/poseidon\n185.13.32.132\n185.13.32.48\n31.184.192.196\n91.220.131.116\n91.220.131.87\n185.82.216.86
+        \      # http://malware.dontneedcoffee.com/2015/05/an-exploit-kit-dedicated-to-csrf.html\n217.12.202.93\n37.139.50.45\n85.17.142.21
+        \       # http://community.websense.com/blogs/securitylabs/archive/2015/06/10/large-malvertizing-campaign-leads-to-angler-ek-amp-bunitu-malware.aspx\n95.211.58.100\n95.211.233.121\n46.183.216.247\n110.201.214.114\n110.201.5.111\n31.173.52.225\n85.17.142.21\n80.242.123.211
+        \     # http://documents.trendmicro.com/assets/GamaPOS_Technical_Brief.pdf\n80.242.123.144\n185.61.138.148\n76.73.47.90
+        \        # http://www.welivesecurity.com/2014/10/08/sednit-espionage-group-now-using-custom-exploit-kit/\n223.25.233.248
+        \     # http://www.volexity.com/blog/?p=158\n66.172.11.207       # http://www.isightpartners.com/2015/07/microsoft-office-zero-day-cve-2015-2424-leveraged-by-tsar-team/\n97.75.120.45
+        \       # https://www.f-secure.com/weblog/archives/00002822.html\n58.80.109.59\n198.200.45.112
+        \     # http://www.threatconnect.com/the-anthem-hack-all-roads-lead-to-china/\n142.91.76.134\n192.199.254.126\n46.166.160.41
+        \      # https://www.trustwave.com/Resources/SpiderLabs-Blog/RIG-Reloaded---Examining-the-Architecture-of-RIG-Exploit-Kit-3-0/\n49.143.192.221
+        \     # http://www.secureworks.com/cyber-threat-intelligence/threats/threat-group-3390-targets-organizations-for-cyberespionage/\n49.143.205.30\n66.63.178.142\n67.215.232.179\n67.215.232.181\n67.215.232.182\n72.11.141.133\n72.11.148.220\n74.63.195.236\n74.63.195.237\n74.63.195.238\n96.44.177.195\n96.44.182.243\n96.44.182.245\n96.44.182.246\n103.24.0.142\n103.24.1.54\n106.187.45.162\n192.151.236.138\n192.161.61.19\n192.161.61.20\n192.161.61.22\n208.115.242.36\n208.115.242.37\n208.115.242.38\n46.30.41.159
+        \       # https://blog.team-cymru.org/2015/06/poseidon-and-the-backoff-pos-link/\n46.166.168.106\n89.144.2.148\n89.144.2.149\n89.144.2.150\n93.171.202.168\n146.120.110.104\n162.244.32.164\n178.62.208.238\n193.230.220.53\n216.246.98.85\n46.30.41.159\n46.161.40.106\n89.144.2.151\n91.220.131.182\n128.199.73.152\n210.209.89.162
+        \     # http://research.zscaler.com/2015/08/chinese-cyber-espionage-apt-group.html\n115.144.107.55
+        \     # https://heimdalsecurity.com/blog/security-alert-millions-exposed-internet-explorer-vulnerability/\n182.253.220.29
+        \     # https://securelist.com/blog/research/70504/the-mystery-of-duqu-2-0-a-sophisticated-cyberespionage-actor-returns/?utm_content=15857818&utm_medium=social&utm_source=twitter\n186.226.56.103\n93.171.205.64
+        \      # http://research.zscaler.com/2015/08/neutrino-campaign-leveraging-wordpress.html\n185.44.105.7\n197.251.168.227
+        \    # http://www.threatgeek.com/2015/08/good-malware-never-dies-alienspy-reborn-as-jsocket-1.html\n198.91.81.2\n98.126.67.114
+        \      # http://researchcenter.paloaltonetworks.com/2015/09/musical-chairs-multi-year-campaign-involving-new-variant-of-gh0st-malware/\n68.68.105.174\n98.126.121.202\n173.254.223.24\n192.52.166.115
+        \     # https://securelist.com/blog/research/72283/gaza-cybergang-wheres-your-ir-team/\n131.72.136.28\n109.200.23.207\n131.72.136.124\n66.155.23.36\t\n172.227.95.162\n162.220.246.117\t\n162.220.246.117\n192.253.246.169\t\n192.99.111.228\n192.52.167.125\t\n185.33.168.150\n198.105.117.37\t\n185.45.193.4\n198.105.122.96\t\n131.72.136.11\n131.72.136.171\t\n84.200.17.147\n166.62.28.107
+        \      # http://www.scmagazineuk.com/googles-adwords-have-been-hijacked-by-crooks/article/441894/\n192.126.126.64
+        \     # http://blog.malwaremustdie.org/2015/09/mmd-0042-2015-polymorphic-in-elf.html\n107.160.40.9\n210.92.18.118
+        \      # http://blog.malwaremustdie.org/2015/09/mmd-0042-2015-hunting-mr-black-ids-via.html\n222.186.34.220\n24.33.131.116
+        \      # https://www.proofpoint.com/us/threat-insight/post/Dyreza-Campaigners-Sights-On-Fulfillment-Warehousing-Industry\n24.148.217.188\n27.109.20.53\n37.57.144.177\n42.47.213.123\n45.64.159.18\n46.174.237.115\n63.248.156.246\n65.33.236.173\n67.207.229.215\n67.221.146.67\n67.221.146.107\n67.221.147.66\n67.221.147.103\n67.221.156.105\n67.221.156.165\n67.221.156.216\n67.221.195.6\n67.222.201.61\n67.222.201.222\n68.70.242.203\n69.9.204.114\n69.27.57.164\n69.144.171.44\n72.175.10.116\n72.230.82.80\n73.38.228.117\n77.48.30.156\n78.8.9.55\n78.8.174.25\n78.72.233.105\n78.108.101.67\n82.100.4.60\n82.115.76.211\n82.160.64.45\n83.241.176.230\n84.54.191.170\n85.135.104.170\n87.249.142.189\n89.140.63.207\n89.161.51.115\n89.174.116.76\n89.239.120.43\n91.232.45.40\n91.232.45.149\n91.238.241.26\n91.239.244.187\n91.246.105.164\n94.40.82.66\n94.141.130.9\n103.230.220.8\n109.86.226.85\n109.87.63.98\n109.199.11.51\n112.133.203.43\n114.30.73.130\n115.119.250.245\n142.47.213.123\n150.129.48.147\n150.129.49.11\n150.129.49.139\n150.129.49.162\n173.185.166.94\n173.216.247.74\n173.248.31.6\n173.252.48.79\n173.252.50.124\n176.101.135.103\n176.120.201.9\n180.233.123.210\n181.112.153.202\n181.174.91.90\n184.190.64.35\n185.74.84.55\n185.89.64.160\n186.46.142.66\n186.68.94.38\n188.120.194.101\n188.125.38.100\n188.255.154.180\n193.189.77.76\n194.28.191.245\n195.117.104.102\n195.154.105.117\n195.154.106.76\n195.191.34.245\n197.149.90.166\n197.210.199.21\n203.115.103.27\n203.129.197.50\n206.116.171.216\n206.123.58.42\n206.123.60.93\n206.222.25.58\n208.117.68.78\n208.123.135.106\n209.27.49.117\n212.109.179.197\n212.182.101.2\n213.92.138.154\n213.92.204.37\n216.57.165.182\n217.12.202.99\n188.40.106.84
+        \      # http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp-operation-arid-viper.pdf\n188.40.75.132\n188.40.81.136\n192.254.132.26\n54.255.143.112\n182.62.211.45
+        \      # Foxit Ponmcup - A giant hiding in the shadows v1.1 November, 30,
+        2015\n185.17.184.249\n214.66.10.71\n217.23.3.243\n217.23.3.244\n217.23.3.249\n232.187.207.67\n26.252.164.23\n28.16.103.211\n62.212.68.230\n78.109.28.248\n78.109.28.249\n78.109.28.250\n85.17.133.193\n85.17.133.194\n89.172.227.240\n93.115.88.220\n95.211.240.193\n95.211.240.194\n45.63.13.175
+        \       # https://blog.malwarebytes.org/malvertising-2/2015/12/spike-in-malvertising-attacks-via-nuclear-ek-pushes-ransomware/\n104.131.212.117\n31.184.192.206
+        \     # http://www.threatgeek.com/2015/12/the-many-paths-to-angler.html\n31.184.192.197\n31.184.192.216\n31.184.192.202\n85.143.220.153\n85.143.217.31\n85.143.219.167\n85.143.220.95\n85.143.216.253\n85.143.220.44\n85.143.220.18\n85.143.219.200\n85.143.220.109\n85.143.217.50\n85.143.219.77\n85.143.219.65\n85.143.219.232\n85.143.219.163\n178.33.200.161\n188.227.74.75\n188.227.19.86\n85.143.217.191\n212.116.121.51\n46.161.2.73\n185.104.8.50\n5.9.212.53
+        \         # http://researchcenter.paloaltonetworks.com/2015/12/proxyback-malware-turns-user-systems-into-proxies-without-consent/\n5.79.85.212\n46.38.51.49\n46.165.193.67\n46.165.222.212\n46.165.223.193\n62.75.255.52\n69.64.32.110\n85.17.30.89\n91.121.193.50\n91.185.215.137\n93.189.40.164\n93.189.42.9\n93.189.42.43\n104.238.173.238\n108.59.9.15\n185.72.244.171\n185.72.246.23\n194.247.12.11\n194.247.12.49\n213.229.102.157\n217.172.179.88\n14.4.0.0/15
+        \        # http://www.spamhaus.org/news/article/726/verizon-routing-millions-of-ips-for-cybercrime-gangs\n14.6.0.0/15\n42.128.0.0/12\n42.160.0.0/13\n42.168.0.0/13\n43.250.64.0/22\n103.41.180.0/22\n116.129.0.0/16\n116.132.0.0/15\n116.136.0.0/15\n116.138.0.0/15\n116.140.0.0/15\n116.142.0.0/15\n116.148.0.0/15\n116.150.0.0/16\n116.152.0.0/15\n116.156.0.0/14\n116.160.0.0/14\n116.164.0.0/14\n116.168.0.0/15\n116.179.0.0/16\n116.184.0.0/13\n120.46.0.0/15\n120.48.0.0/15\n155.40.0.0/16\n192.185.21.183
+        \       # https://heimdalsecurity.com/blog/security-alert-exploit-kits-activity-spike-packs-improved-payloads-new-servers-predilection-flash-player/\n78.24.220.229
+        \        # https://heimdalsecurity.com/blog/security-alert-fileless-kovter-teams-modular-corebot-malware-irs-spam-campaign/\n213.136.92.111
+        \       # http://research.zscaler.com/2016/01/yet-another-signed-malware-spymel.html\n188.138.68.30
+        \        # https://blog.malwarebytes.org/malvertising-2/2016/01/malvertising-campaign-via-pop-under-ads-sends-cryptowall-4/\n93.190.143.110
+        \       # http://www.talosintel.com/angler-exposed/\n93.190.138.162\n95.211.162.166\n#
+        http://www.talosintel.com/files/additional_resources/angler_exposed/sept_ips_final.txt\n104.207.130.65\n104.238.185.98\n104.238.191.3\n104.45.9.15\n108.61.177.149\n109.234.38.86\n144.76.143.121\n144.76.172.201\n148.251.98.68\n151.80.201.165\n185.117.72.109\n185.117.72.111\n185.117.72.112\n185.117.72.113\n185.117.72.114\n185.49.68.102\n185.49.68.136\n185.77.129.140\n185.77.129.142\n185.77.129.180\n185.77.129.183\n185.77.129.192\n185.77.129.216\n185.77.129.224\n185.77.129.244\n185.82.200.117\n185.82.200.225\n188.120.226.224\n188.120.226.226\n188.120.236.206\n188.120.236.212\n188.120.236.228\n188.120.242.147\n188.120.243.138\n188.120.247.192\n188.138.105.124\n188.138.57.179\n188.138.57.73\n188.138.70.112\n188.227.16.107\n188.227.19.72\n198.204.226.244\n198.204.226.245\n198.204.226.246\n207.182.129.154\n207.182.129.158\n207.182.130.187\n207.182.130.188\n207.182.130.189\n212.109.219.39\n212.116.121.142\n212.116.121.168\n212.116.121.69\n212.116.121.88\n31.148.220.164\n31.148.220.168\n31.148.220.169\n31.148.220.175\n31.148.220.181\n31.148.220.182\n31.148.220.185\n31.148.220.191\n31.148.220.234\n37.220.14.235\n45.32.237.204\n45.40.133.180\n46.165.199.230\n46.165.223.160\n46.165.247.178\n46.165.247.179\n46.28.55.116\n5.63.150.138\n51.254.116.93\n52.11.202.209\n62.109.13.72\n62.109.14.87\n62.109.28.111\n62.109.5.12\n62.109.8.231\n62.75.203.106\n64.79.70.202\n64.79.70.203\n64.79.70.204\n64.79.70.205\n64.79.70.206\n64.79.87.170\n64.79.87.171\n64.79.87.174\n66.199.240.244\n74.63.253.82\n74.63.253.83\n74.63.253.84\n82.146.34.94\n82.146.43.174\n85.17.15.33\n85.17.214.61\n85.25.102.3\n85.25.104.142\n85.25.104.153\n85.25.43.230\n85.25.79.185\n85.25.79.186\n85.25.79.187\n85.25.79.188\n86.105.235.18\n86.105.235.44\n86.105.235.56\n86.105.235.60\n86.105.235.81\n86.105.235.96\n87.117.226.14\n92.63.101.211\n93.115.240.158\n95.211.104.193\n#
+        http://www.talosintel.com/files/additional_resources/angler_exposed/july_ips.txt\n5.1.82.186\n5.79.85.235\n5.79.85.241\n5.79.85.242\n5.135.16.205\n5.196.183.76\n5.196.183.77\n45.34.75.102\n45.64.105.43\n46.4.213.132\n46.4.213.133\n62.109.13.130\n62.109.14.244\n62.109.15.242\n62.109.24.231\n62.109.30.119\n62.109.30.123\n62.109.30.124\n63.143.53.46\n64.79.70.148\n69.162.64.154\n69.162.64.155\n69.162.64.156\n69.162.64.158\n69.162.66.70\n69.162.73.90\n69.162.73.91\n69.162.73.92\n69.162.73.93\n69.162.73.94\n69.162.76.35\n69.162.76.36\n69.162.76.38\n69.162.86.34\n69.162.86.36\n69.162.86.37\n69.162.86.38\n69.162.89.27\n69.162.89.28\n69.162.89.29\n69.162.89.30\n69.162.90.107\n69.162.90.108\n69.162.112.181\n69.162.112.182\n69.162.116.123\n69.162.116.124\n69.162.116.125\n69.162.116.126\n69.162.116.253\n69.162.116.254\n74.63.217.218\n74.63.217.219\n74.63.217.220\n74.63.217.221\n74.63.217.222\n74.63.237.178\n74.63.237.179\n74.63.237.180\n74.63.237.181\n74.63.237.182\n78.46.252.108\n78.46.252.109\n78.46.252.110\n82.146.39.182\n82.195.144.49\n85.17.72.3\n85.17.72.4\n85.17.72.5\n88.198.54.212\n92.63.103.178\n92.63.103.179\n94.131.14.33\n94.131.14.34\n94.131.14.35\n94.131.14.36\n94.131.14.37\n94.250.248.138\n104.238.189.68\n104.238.189.212\n128.199.188.214\n136.243.96.94\n136.243.210.198\n136.243.211.78\n148.251.49.239\n148.251.133.230\n148.251.167.52\n148.251.167.57\n148.251.167.60\n148.251.167.62\n148.251.167.97\n148.251.167.98\n148.251.167.99\n148.251.167.100\n148.251.167.102\n148.251.167.104\n148.251.167.105\n148.251.167.106\n148.251.167.107\n173.0.51.81\n173.244.164.54\n176.9.35.148\n176.9.245.138\n176.9.245.139\n176.9.245.140\n176.9.245.141\n176.9.245.142\n178.63.173.165\n178.63.173.166\n185.43.220.56\n185.43.223.162\n185.43.223.163\n185.43.223.164\n185.43.223.165\n185.48.56.76\n185.48.57.64\n185.48.57.105\n185.48.58.51\n185.48.58.52\n185.48.59.76\n188.120.232.41\n188.120.232.46\n188.120.233.175\n188.120.236.58\n188.120.236.59\n188.120.247.21\n188.120.247.117\n188.120.247.161\n206.190.134.188\n206.190.134.189\n206.190.134.190\n207.182.159.219\n209.190.51.210\n209.190.51.212\n209.190.51.213\n209.190.51.214\n213.136.76.36\n216.144.244.147\n216.144.244.148\n216.245.209.2\n216.245.209.4\n216.245.209.5\n216.245.209.6\n216.245.213.138\n216.245.213.139\n216.245.213.141\n216.245.213.142\n216.245.218.27\n216.245.218.28\n216.245.218.29\n216.245.218.30\n#
+        https://securelist.com/securelist/files/2016/02/KL_AdwindPublicReport_2016.pdf\n103.25.58.218\n199.255.138.38\n199.255.138.43\n204.152.219.120\n204.152.219.70\n204.45.207.49\n204.45.207.53\n212.7.208.71\n212.7.208.86\n212.7.208.88\n212.7.218.136\n213.184.126.142\n213.208.129.204\n213.208.129.211\n213.208.129.218\n213.208.129.220\n213.208.152.218\n216.107.152.237\n216.185.114.219\n216.38.2.192\n216.38.2.216\n216.38.8.189\n23.105.128.147\n23.105.128.148\n23.105.131.155\n23.105.131.188\n23.105.131.209\n23.227.196.198\n23.227.196.207\n23.227.199.118\n23.227.199.121\n23.227.199.72\n23.231.23.182\n31.171.155.72\n46.151.208.242\n46.20.33.104\n46.20.33.76\n5.187.34.231\n5.254.106.208\n5.254.106.251\n5.254.112.21\n5.254.112.24\n5.254.112.36\n5.254.112.56\n5.254.112.60\n5.79.79.67\n5.79.79.70\n50.7.199.164\n51.254.21.25\n67.215.4.74\n67.215.4.75\n67.215.9.231\n67.215.9.232\n67.215.9.235\n69.65.7.141\n79.172.242.87\n79.172.242.97\n91.236.116.105\n91.236.116.136\n94.156.219.237\n95.140.125.35\n95.140.125.37\n95.140.125.46\n95.140.125.62\n95.140.125.76\n95.140.125.85\n#
+        https://www.anomali.com/blog/three-month-frameworkpos-malware-campaign-nabs-43000-credits-cards-from-poi\n45.63.71.150\n#
+        http://www.deependresearch.org/2016/02/jan-feb-2016-domains-associated-with.html\n162.247.12.207\n#
+        https://www.fireeye.com/blog/threat-research/2016/03/treasurehunt_a_cust.html\n91.232.29.83\n179.43.160.34\n#
+        http://www.welivesecurity.com/2016/03/30/meet-remaiten-a-linux-bot-on-steroids-targeting-routers-and-potentially-other-iot-devices/\n185.130.104.131\n185.130.5.201\n185.130.5.202\n#
+        https://www.fireeye.com/blog/threat-research/2016/03/surge_in_spam_campai.html\n188.138.88.184\n31.41.47.37\n5.34.183.136\n91.121.97.170\n#
+        http://blog.talosintel.com/2016/04/nuclear-tor.html\n188.166.27.134\n# https://blog.sucuri.net/2011/03/brenz-pl-is-back-with-malicious-iframes.html\n91.188.59.197\n#
+        Qbot https://resources.baesystems.com/pages/view.php?ref=39115&k=46713a20f9\n162.144.12.241\n181.224.138.240\n188.227.16.59\n188.227.18.185\n193.111.140.236\n46.30.43.188\n46.30.43.213\n50.87.150.203\n69.195.124.60\n85.25.210.196\n#
+        https://www.fireeye.com/blog/threat-research/2016/04/ghosts_in_the_endpoi.html\n220.128.223.75\n31.168.144.18\n84.11.146.62\n94.70.155.253\n#
+        https://www.fireeye.com/blog/threat-research/2016/04/new_downloader_forl.html\n185.130.7.22\n#
+        http://blog.trendmicro.com/trendlabs-security-intelligence/locky-ransomware-spreads-flash-windows-kernel-exploits/\n202.102.110.204\n#
+        https://blogs.forcepoint.com/security-labs/jaku\n101.99.68.5\n43.252.36.195\n103.13.229.20\n27.254.44.207\n202.142.223.144\n27.254.96.222\n27.254.55.23\n27.254.96.223\n202.150.220.93\n91.44.233.77
+        # SAPHARUS-PC\n# http://threatglass.com/malicious_urls/popbest-net\n# https://malwr.com/analysis/ZTgzZjViMzI5OGQzNDc1ZDkwN2JjMjFlNjAyNTY5YTM/\n85.93.0.0/18\n#
+        http://malware-traffic-analysis.net/2016/05/09/index.html\n185.118.66.154\n82.141.230.141\n104.193.252.241\n162.244.34.11\n188.138.105.185\n#
+        http://researchcenter.paloaltonetworks.com/2016/05/unit42-bucbi-ransomware-is-back-with-a-ukrainian-makeover/\n31.184.197.69\n31.44.191.251\n79.117.151.236\n46.161.40.11\n191.101.31.126\n87.249.215.196\n#
+        https://www.proofpoint.com/us/threat-insight/post/Exploit-Kit-Deja-Vu\n207.244.95.42\n83.149.99.43\n212.200.96.25\n212.227.162.50\n50.31.146.101\n#
+        https://www.proofpoint.com/us/threat-insight/post/cryptxxx2-ransomware-authors-strike-back-against-free-decryption-tool\n217.23.13.153\n#
+        https://www.microsoft.com/en-us/download/details.aspx?id=51956\n200.61.248.8\n209.45.65.163\n190.96.47.9\n192.192.114.1\n61.31.203.98\n#
+        https://twitter.com/Techhelplistcom\n212.7.208.81\n211.75.82.207\n128.199.246.105\n210.65.11.155\n86.130.166.5\n105.184.215.209\n92.27.245.158\n86.135.163.38\n81.136.142.29\n86.139.81.45\n200.74.241.151\n14.97.18.93\n14.99.8.219\n165.255.60.173\n203.45.13.29\n5.2.145.23\n68.200.154.229\n70.164.35.105\n72.27.189.56\n78.146.221.200\n86.175.137.132\n89.230.226.187\n174.34.164.106\n8.254.200.222\n185.82.216.45\n107.6.184.117\n5.101.152.96\n192.185.222.20\n212.227.33.186\n193.9.28.13\n62.212.95.69\n14.97.199.78\n14.99.144.160\n24.37.152.62\n66.116.1.87\n67.197.181.63\n68.235.139.37\n72.27.40.48\n75.106.84.242\n75.154.173.79\n75.164.106.249\n76.164.64.111\n86.135.141.72\n86.147.208.204\n88.122.10.129\n89.230.226.192\n96.58.197.43\n99.236.206.72\n122.62.188.136\n206.188.254.60\n216.18.198.229\n216.45.83.67\n109.123.114.197\n109.123.114.198\n185.38.184.0/24\n109.168.95.40\n88.86.117.154\n213.205.40.169\n107.181.187.12\n178.63.238.188\n69.195.129.70\n176.99.4.16\n176.57.209.57\n176.57.209.25\n193.218.145.32\n212.109.219.162\n85.17.82.122\n185.66.9.184\n185.36.102.39\n104.171.113.104\n46.16.188.17\n104.145.234.84\n195.254.135.18\n178.170.189.57
+        \         # 744922229217992705\n91.217.90.125\n195.42.183.110\n91.186.0.4
+        \             # 745324269354131456\n77.221.130.6            # 747493850638213121\n81.177.140.141\n82.140.32.172\n192.186.246.134\n195.208.0.136\n195.208.1.146\n198.54.115.218\n207.210.108.162\n210.171.0.30\n216.218.93.172\n217.172.226.2\n210.171.0.30
+        \           # 747436111430057984\n217.73.226.220\n107.6.169.61\n86.106.30.71\n107.180.24.238\n217.73.226.220\n67.227.166.55
+        \          # 746043420918046720\n144.76.19.241\n217.28.218.223          #
+        746012349316816896\n194.67.201.123          # 747850693294198784\n178.57.216.22\n92.53.126.72\n178.57.216.22\n91.203.5.144\n91.230.211.84\n92.53.126.72\n176.114.1.205\n185.31.162.63\n37.1.202.5
+        \             # 948295014634917889\n217.23.13.20\n91.209.70.107           #
+        976587805848756224\n104.168.177.9           # 996976272357183489\n162.219.250.21
+        \         # 998778509408522241\n# https://twitter.com/_operations6_\n185.141.25.108\n178.63.238.185\n51.254.181.120\n212.109.219.31\n204.11.58.39\n14.156.32.77\n118.179.198.66\n80.68.177.153\n178.254.62.11\n93.170.253.80\n168.227.171.254\n112.140.176.15\n77.232.66.157\n46.30.46.218\n149.255.62.53\n194.58.121.186\n196.41.123.34
+        \          # 742995019984994304\n149.255.58.2            # 743399246112657408\n104.255.35.102
+        \         # 743484787357278211\n185.66.175.253          # 744823026135425024\n85.93.0.0/24
+        \           # 744843960456257536\n85.93.1.0/24\n54.93.102.86\n193.203.99.115
+        \         # 745622463132753920\n91.219.29.41\t\n195.114.0.86\n81.169.145.159\n195.114.0.86\n184.168.143.94
+        \         # 745706140244258817\n69.49.101.51\n109.237.208.29\n213.254.13.74\n23.229.171.33
+        \          # 746330714765934592\n80.109.240.71\n93.170.123.219          #
+        748068104232665088\n149.154.159.112\n151.236.15.226\n151.236.17.45\n151.236.17.47\n194.31.59.147\n93.170.123.219
+        \         # 748134761999273985\n149.154.159.125\n151.236.17.45\n# https://twitter.com/pancak3lullz\n213.186.33.17\n5.254.106.219\n198.57.247.233\n188.138.70.183\n222.186.21.170\n208.123.67.243\n192.185.16.132\n81.201.141.119\n94.102.63.7\n104.28.1.104\n217.12.199.94\n185.92.247.46\n184.164.156.210\n188.138.33.0/24\n62.75.207.0/24\n85.93.93.0/24\n219.234.6.206\n31.41.44.246\n87.236.19.13\n146.185.155.126\n139.59.166.196\n176.114.3.173\n107.170.20.33\n46.20.33.98\n31.184.194.100\n104.160.176.116\n31.184.195.114\n198.58.116.24\n110.136.244.128\n54.149.248.132\n5.189.150.246\n91.234.33.215\n119.17.253.225\n213.229.118.3\n72.29.175.234\n66.96.133.9\n196.12.12.88\n91.199.120.147\n50.87.114.63\n91.206.31.136\n5.196.199.235\n5.101.174.170\n185.58.227.227\n212.47.208.0/24\n84.245.33.104\n108.175.157.102\n158.85.253.245\n193.200.80.26\n220.130.183.13\n220.130.196.145\n185.118.164.42\n85.25.160.124\n209.126.120.8\n104.193.252.236\n93.190.141.27\n207.182.148.92\n85.25.79.211\n95.211.205.228\n192.169.190.97\n5.199.141.203\n192.169.189.167\n95.211.205.218\n85.171.195.89\n54.186.122.88\n194.149.138.49\n168.235.72.204\n82.13.46.90\n33.38.160.238\n59.116.23.197\n70.58.60.21\n21.221.249.200\n21.26.242.199\n184.11.83.2\n90.253.197.36\n108.222.64.168\n102.247.192.26\n5.154.240.145\n98.45.51.8\n165.203.213.15\n9.166.23.197\n203.124.118.1\n23.94.97.5\n217.219.107.150\n46.165.228.119\n92.243.29.148\n24.71.248.218\n198.143.180.166\n67.102.190.171\n93.190.69.10\n109.237.111.168\n192.121.16.196\n185.82.216.213\n46.108.39.224\n31.184.197.126\n78.47.110.82\n91.226.93.113\n91.219.29.64\n89.32.40.0/24\n81.177.141.229\n54.68.74.174\n185.108.128.5\n92.222.5.193\n193.132.119.122\n188.165.157.176\n83.217.8.155\n95.154.199.55\n103.255.60.221\n179.43.133.37\n208.67.1.9\n208.67.1.62\n208.67.1.182\n217.29.58.163\n185.29.11.188\n69.30.204.13\n91.134.169.86\n213.171.218.186\n185.117.75.131\n200.144.182.130\n178.79.190.156\n192.185.14.130\n209.239.114.139\n185.117.75.170\n148.81.111.121\n193.166.255.171\n178.32.208.148\n192.185.21.133\n195.20.44.109\n83.69.233.121\n185.27.134.216\n89.45.67.200\n181.215.236.213\n212.92.57.70\n176.9.174.220\n178.32.208.147\n158.69.9.184\n65.117.69.231\n63.77.93.12\n181.60.142.27\n200.76.89.52\n175.110.116.248\n201.6.125.231\n189.203.180.24\n187.223.245.220\n175.106.14.186\n5.42.240.18\n213.233.85.50\n179.43.160.68\n23.229.153.132\n78.129.205.2\n72.167.252.88\n67.222.1.10\n207.154.33.12\n31.184.233.109\n94.177.249.150\n95.213.192.70\n195.211.153.40\n85.93.5.0/24\n192.42.116.41\n54.200.80.127\n68.169.62.24\n82.196.6.143\n91.233.244.103\n112.78.2.141\n195.16.127.157\n23.21.187.40\n82.25.194.116\n74.208.133.234\n146.0.42.68\n104.193.252.245\n103.56.157.90\n200.0.24.42\n222.124.202.178\n46.180.7.231\n195.16.127.102\n112.175.184.65\n50.116.32.177\n104.168.188.170\n213.186.33.82\n43.250.226.174\n42.60.60.157\n160.176.170.32\n52.28.240.134\n160.153.51.64\n111.74.238.109\n43.248.9.100\n88.198.69.43\n58.221.36.235\n45.34.191.159\n58.221.44.4\n88.198.69.43\n117.21.224.222\n58.221.44.37\n216.121.96.21\n125.88.186.67\n118.99.23.184\n31.11.33.35\n58.215.79.72\n52.51.20.225\n183.60.202.97\n82.195.224.108\n210.253.108.243\n141.8.224.221\n92.53.96.57\n185.154.12.134\n124.158.10.82\n31.177.94.109\n188.42.242.67\n188.42.242.91\n188.42.244.218\n112.78.2.43\n110.164.126.64\n112.175.184.65\n82.165.25.210\n195.22.28.197\n144.76.106.114\n142.0.138.222\n128.31.0.39\n91.216.107.195\n220.165.9.89\n23.229.221.104\n128.31.0.39\n162.144.156.241\n185.93.108.132\n91.220.131.68\n144.76.249.26\n92.53.121.171\n93.171.202.176\n96.90.244.189\n213.157.215.229\n178.79.190.156
+        \         # 737325985327022080\n50.116.32.177\n173.230.158.166\n183.61.165.228
+        \         # 743123575146586112\n94.126.171.211          # 743116839689953280\n185.27.134.171
+        \         # 744942079055376384\n93.171.202.176          # 744928763012653058\n185.20.186.51
+        \          # 745270229580800000\n95.128.201.170\n46.4.105.20\n91.216.163.91
+        \          # 745266950486495232\n217.146.69.1            # 745263747015540737\n162.253.41.144
+        \         # 745619915336409088\n204.16.169.2\n162.253.41.87\n141.6.226.14\n216.244.80.92
+        \          # 745613248838270980\n200.219.245.117\n74.91.236.57            #
+        745685949259014147\n213.226.246.120         # 745674128456192002\n69.194.235.100
+        \         # 746821965801914368\n89.42.39.67             # 746337709774430208\n188.40.80.188
+        \          # 746402316316606464\n160.153.35.5\n64.31.54.150            # 746040971675131906\n64.31.54.149\n144.76.145.166\n205.185.216.10\n115.47.18.252
+        \          # 748153504615694338\n88.86.120.181           # 748137296889675776\n95.170.90.21\n217.119.54.167\n#
+        https://www.proofpoint.com/us/threat-insight/post/abaddonpos-now-targeting-specific-pos-software\n50.7.124.178\n85.93.5.136\n143.107.42.227\n85.15.231.195\n31.170.164.228\n115.239.229.196\n222.163.80.69\n111.74.238.109\n#
+        https://malwr.com/analysis/YTAxZWUwOTcyZjhhNGJkMzg4OWJlZDczMWViMzE3NDQ/\n37.58.127.155\n206.188.192.96\n162.249.6.22\n162.210.102.89\n176.114.0.200\n103.6.198.228\n#
+        http://malware-traffic-analysis.net/2016/05/12/index.html\n69.162.126.171\n144.76.82.19\n#
+        https://twitter.com/benkow_\n46.22.145.57          # 743054179418185728\n67.205.10.59
+        \         # 743817815971536896\n112.251.5.107         # 744815941624594432\n95.46.98.221
+        \         # 747450303172206593\n192.232.216.115       # 745988568112316416\n193.232.55.194
+        \       # 747813034006020096\n# https://blog.sucuri.net/2016/05/test0test5-com-redirect-hack-new-wave.html\n199.48.227.25\n#
+        https://myonlinesecurity.co.uk/spam-malware-attached-picture-from-scanner-copier-at-your-own-email-address/\n81.88.48.79\n#
+        https://labs.opendns.com/2016/05/16/black-hat-2016-fast-flux-ssl-unique-popular-bulletproof-hosting-option-cyber-criminals/\n109.86.110.190\n#
+        https://twitter.com/MalwareKiwi\n185.56.82.82\n# https://twitter.com/ConradLongmore\n37.130.229.96/28\n209.190.96.232/29\n138.201.162.164\n85.93.0.0/24\n80.82.64.0/24\n188.165.157.176/30\n45.63.25.106
+        \           # 743818662730170368\n83.217.27.178           # 744840846822932480\n217.12.223.88
+        \          # 747408709349941248\n195.123.209.227\n185.82.216.61\n91.219.29.41
+        \           # 745915370402385921\n217.12.223.88\n195.123.209.227\n193.203.99.111\n195.208.0.136\n212.46.196.141\n93.170.123.219
+        \         # 748134670466949120\n149.154.159.125\n151.236.17.45\n151.236.17.47\n194.31.59.147\n#
+        https://www.virustotal.com/en/file/e6d3c977810949624807c50cdd732e4a08c0561ee3b3c857421933dcc2db7119/analysis/1463485866/\n125.212.220.11\n#
+        https://www.virustotal.com/en/file/5962c039820c882e22dac13f9ea74c1763f8c7a95cf3be69902379506385e7f2/analysis/\n103.230.189.210\n46.249.199.87\n50.63.60.96\n68.169.148.133\n74.92.81.105\n86.139.85.163\n86.149.0.206\n#
+        https://www.virustotal.com/en/file/070b7bd6fc066201724e854b79303c4963dd9d177b12b91d737b35d39b4efbcd/analysis/\n217.12.199.151\n107.181.174.15\n93.170.169.52\n#
+        https://www.virustotal.com/en/file/bd5c2b7f75f629436ac8458c7d994d5246f5537571c865dd3dde9cb1a9401193/analysis/1463417415/\n217.76.130.137\n#
+        https://www.virustotal.com/en/file/068c5a04584e0687bb57de1a3165f87dd9d9f4ef318eef6ef99eaa523dd7edce/analysis/\n79.96.153.93\n176.53.21.105\n#
+        https://www.virustotal.com/en/file/b42121af9bab7b66bab495a97128170a7536d10707ed47896865dcfc60a568f5/analysis/1463505756/\n54.212.162.6\n138.186.148.162\n190.242.70.182\n#
+        https://www.virustotal.com/en/file/88bba2b3075c67a40a5b3f57e31ff52fbf82299e1983320998c686dd43e37838/analysis/1463514873/\n24.199.222.250\n12.109.210.123\n12.227.176.187\n14.96.182.161\n14.97.53.204\n165.255.100.201\n197.96.139.253\n216.106.253.76\n5.2.130.10\n67.22.207.161\n72.27.187.107\n74.207.137.87\n76.171.201.163\n82.109.41.179\n89.116.116.118\n43.225.53.214\n37.59.128.65\n#
+        http://www.nyxbone.com/malware/SkidLocker.html\n23.227.199.83\n23.227.199.175\n#
+        https://www.proofpoint.com/us/threat-insight/post/ransomware-explosion-continues-cryptflle2-brlock-mm-locker-discovered\n93.170.168.60\n#
+        http://phishme.com/bolek-leaked-carberp-kbot-source-code-complicit-new-phishing-campaigns/\n141.105.69.251\n160.202.168.105\n191.101.239.161\n217.28.218.217\n45.30.53.96\n46.32.254.136\n50.125.238.102\n52.74.127.205\n64.235.33.221\n93.111.155.134\n#
+        https://myonlinesecurity.co.uk/spam-malware-you-got-a-voice-message-whatsapp-delivers-locky/\n92.63.87.48\n89.108.84.155\n#
+        https://isc.sans.edu/forums/diary/EITest+campaign+still+going+strong/21081\n85.93.0.0/24\n104.238.185.187\n185.117.75.219\n95.183.52.215\n#
+        https://virustotal.com/en/file/6133cc2d093c640753c2788cdea905963083d3861de7770fe332ad50eb4f7172/analysis/1463720462/\n162.250.191.61\n#
+        https://www.virustotal.com/en/domain/wifi-spreader.ilovecollege.info/information/\n109.18.250.24\n#
+        https://www.virustotal.com/en/file/c669e4b9da815fce109355c0052514513f9a27f8919eb1c61f080b421f0d6918/analysis/\n101.187.28.8\n12.109.210.112\n135.26.29.213\n14.97.225.11\n14.99.13.19\n206.223.199.159\n222.255.121.202\n24.8.213.200\n64.203.222.43\n72.35.204.239\n75.67.214.42\n82.140.160.54\n82.152.47.41\n86.147.175.243\n96.93.247.161\n206.217.196.88\n91.184.55.145\n#
+        https://www.proofpoint.com/us/threat-insight/post/In-The-Shadows?utm_content=buffera79ce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\n185.66.10.57\n#
+        https://twitter.com/JAMESWT_MHT\n198.105.221.6\n166.62.10.226\n199.175.48.94\n200.98.146.115\n90.156.241.111\n37.1.192.81\n62.75.196.125\n185.68.16.81\n93.174.90.117\n113.10.243.78\n23.229.128.32\n212.92.97.33\n69.172.201.217\n37.140.192.169\n94.140.120.170\n91.180.105.209\n86.106.93.230\n92.169.82.86\n105.112.42.98\n46.165.208.108\n86.106.93.230\n185.141.25.74\n92.53.122.16\n46.188.81.206\n87.117.201.6\n192.185.214.24\n5.9.253.171\n37.140.192.110\n143.95.93.32\n80.85.84.72\n46.165.221.166\n76.26.203.243\n194.109.206.212\n78.46.55.227\n176.58.106.242\n178.16.208.60\n89.46.104.46\n89.45.10.191\n167.114.17.37\n92.53.125.158\n69.65.17.35\n131.72.137.174\n186.202.127.132\n192.185.183.82\n70.39.250.162\n200.118.252.93\n181.52.252.32\n93.104.215.155\n216.113.194.65\n200.63.101.103\n103.13.97.199
+        \        # 743059628867657728\n178.236.74.50         # 743023672122822656\n103.241.147.124
+        \      # 743057509037019136\n62.149.128.157        # 743471054065123328\n91.134.150.148\n104.28.27.94\n97.74.4.191
+        \          # 743444054097170432\n72.167.131.76         # 743455443045990400\n104.168.189.222
+        \      # 743376640693133312\n31.13.64.35           # 743344261043617792\n31.11.33.189\n107.180.26.72
+        \        # 743752583819341824\n192.185.0.218         # 744813673328185346\n195.230.101.113
+        \      # 744837104820232192\n192.185.88.86         # 744799560434778112\n62.149.128.151
+        \       # 744810775861047296\n178.170.123.35        # 745173844235673600\n62.138.152.170
+        \       # 747377681092644864\n45.34.81.11           # 747367438954684416\n192.254.189.64
+        \       # 747363951143432192\n217.223.170.163       # 747361785716563968\n192.185.216.145
+        \      # 747347456736792576\n173.247.248.50        # 747342227643346944\n104.152.110.255\n173.247.251.159\n173.247.244.73\n205.134.255.7\n173.247.252.221\n202.191.62.205
+        \       # 747336632722849792\n27.121.64.87          # 747336389323173889\n202.191.62.219
+        \       # 747332868121100289\n52.28.101.64          # 747326372792537088\n50.63.25.127\n38.113.1.157
+        \         # 746368509517631488\n205.144.171.114\n67.23.253.165         # 746349615721680896\n50.63.25.127
+        \         # 746294157329731584\n192.185.216.13        # 746276773227270144\n200.129.163.16
+        \       # 746263640718839808\n205.144.171.139\n195.208.4.197         # 746252791681802240\n188.225.76.139
+        \       # 746246198034599936\n81.177.23.38          # 745895538780934144\n138.201.154.135\n104.255.35.102
+        \       # 745885202568847360\n46.242.145.99         # 748142844582436865\n#
+        https://twitter.com/x0rz\n200.98.174.16\n200.74.240.117\n2.50.41.54\n14.96.64.6\n41.189.45.58\n67.7.100.241\n67.197.110.60\n68.235.137.123\n92.222.204.59\n121.245.156.167\n138.201.44.19\n140.186.100.71\n107.180.41.45\n198.58.93.56\n203.124.114.1\n198.57.136.155\n83.145.194.172\n198.57.236.4\n192.185.162.175\n114.215.155.227\n209.202.252.50\n192.185.216.39\n198.252.101.221\n46.252.149.140
+        \       # 743099521933168643\n116.0.20.77           # 743095694274244608\n103.53.199.99\n92.53.96.66
+        \          # 742997894450565121\n192.169.82.86         # 743056956303216640\n67.231.20.80
+        \         # 743785701314072581\n74.201.86.28          # 745599444637331456\n198.50.156.106
+        \       # 745579173511585792\n107.180.44.223        # 747422851658092544\n46.166.164.252
+        \       # 747352399027789825\n123.30.132.171        # 746357129431375872\n69.89.31.178
+        \         # 746279975066603520\n162.254.207.74        # 746256330181255168\n79.170.40.36
+        \         # 747805953156866049 (pdns)\n79.170.44.77\n79.170.44.78\n79.170.44.90\n79.170.44.97\n79.170.44.117\n176.32.230.6\n217.199.187.193\n217.199.187.197\n104.31.78.178
+        \        # 748159303257890817\n104.27.144.175\n# https://twitter.com/PhysicalDrive0\n174.127.112.103\n#
+        https://twitter.com/malware_traffic\n91.134.206.131\n98.158.184.27\n188.227.17.83\n45.32.181.201\n172.98.199.100\n108.167.188.125
+        \      # 743472000455188480\n104.223.114.15\n146.185.181.235       # 746697153838387201\n136.243.126.122
+        \      # 746531397267918848\n184.154.146.157\n212.231.129.64        # 746119373010534400\n108.163.224.94\n#
+        http://www.cyphort.com/teepr-com-yet-another-top-alexa-site-spreading-ransomware/?utm_content=buffer7b017&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\n217.23.6.40\n#
+        https://twitter.com/JaromirHorejsi\n185.141.25.175\n67.23.226.12\n80.13.113.62\n198.23.67.100\n88.150.220.116
+        \       # 745249631609683968\n208.97.176.242        # 745246981644255232\n192.185.16.209
+        \       # 745987162768838656\n185.45.193.36         # 745892893777334273\n23.227.135.34
+        \        # 745885382307364864\n74.208.147.184        # 747992449478332417\n#
+        http://blog.dynamoo.com/2016/05/phish-tnt-consignment-notification-via.html\n87.106.178.108\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-account-compromised.html\n210.245.92.63\n162.251.84.219\n80.88.89.222\n213.192.1.171\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-please-find-attached-file.html\n188.166.168.250\n31.41.44.45\n92.63.87.53\n176.31.47.100\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-i-have-attached-revised.html\n188.127.231.124\n31.184.197.72\n92.222.71.26\n149.202.109.202\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-emailing-photo-05-11-2016.html\n185.82.202.170\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-as-promised-document-you.html\n5.34.183.40\n185.14.28.51\n88.214.236.11\n#
+        https://securelist.com/analysis/publications/74828/cve-2015-2545-overview-of-current-threats/\n180.150.227.135\n74.208.4.200\n74.208.4.201\n115.144.69.54\n115.144.107.9\n103.61.136.120\n118.193.12.252\n59.188.13.204\n180.128.10.28\n#
+        http://phishme.com/paypal-customers-targeted-stealthy-html-attachment-phish/\n123.56.206.251\n203.195.235.135\n58.10.74.221\n82.78.169.138\n122.155.197.70\n103.63.135.225\n140.121.102.112\n123.59.80.208\n181.49.142.143\n94.102.49.33\n81.95.13.41\n188.68.235.69\n#
+        http://blog.dynamoo.com/2016/05/malware-spam-weekly-report-please-find.html\n138.201.93.46\n91.200.14.139\n164.132.40.47\n#
+        https://twitter.com/criznash\n46.166.162.225\n46.30.43.54\n# http://blog.dynamoo.com/2016/05/malware-spam-urgent-delivery-jobin.html\n104.131.182.103\n#
+        https://twitter.com/sudosev\n122.10.90.110\n# http://malware-traffic-analysis.net/2016/05/26/index.html\n178.62.235.45\n50.21.187.40\n#
+        https://twitter.com/malwrhunterteam\n50.115.165.110\n148.251.249.99\n208.91.198.0/23\n198.54.114.220\n92.53.96.16\n185.119.173.25\n123.1.153.150\n138.201.22.85\n103.55.24.7\n85.204.49.128\n45.32.21.193\n62.102.148.181
+        \       # 743840080373092352\n213.152.162.99\n109.163.226.153\n95.211.229.148\n31.171.155.48\n176.107.177.210\n89.207.130.43
+        \        # 744821552496050176\n192.185.0.218         # 744816701322076160\n192.64.78.11\n216.170.122.130\n81.138.132.221\n46.119.127.129\n185.31.19.193\n54.230.46.166\n63.245.213.44\n31.170.164.118\n54.231.17.57\n107.180.3.136\n203.189.232.57\n131.72.137.174\n192.185.183.82\n185.46.120.234\n5.55.114.2\n188.0.236.7\n185.116.215.205\n166.62.10.144
+        \        # 743158107757477888\n143.95.76.213         # 743772250344726528\n89.207.130.43
+        \        # 744828919459643396\n93.125.99.45          # 744870385523499008\n89.111.176.132\n50.63.202.55
+        \         # 747345842575577088\n50.63.202.52\n107.180.27.234\n50.63.202.34\n166.62.26.27
+        \         # 747351832964435971\n# https://twitter.com/dvk01uk\n69.90.193.5\n198.58.93.28
+        \         # 745312768060882945\n104.244.124.101       # 747338551868547072\n82.223.243.43
+        \        # 746030709706416128\n5.2.228.65            # 746014861927161856\n192.186.209.5
+        \        # 745654656479666176\n177.12.163.97         # 745486375206588416\n162.251.81.210
+        \       # 747505923309056001\n190.14.38.161         # 748185277114396672\n158.69.193.61
+        \        # 748226759628316672\n# https://blog.mxlab.eu/2016/05/26/new-javascript-malware-re-copy/\n188.93.229.73\n#
+        https://twitter.com/thedefensedude\n5.152.199.70\n37.140.192.214\n46.102.232.140\n69.16.243.28\n79.98.24.9\n81.19.186.131\n85.9.56.193\n85.17.87.153\n89.146.221.106\n94.73.146.179\n101.0.77.74\n103.7.8.45\n104.131.101.154\n108.179.252.59\n125.212.248.6\n149.202.49.120\n166.62.27.59\n166.62.28.104\n166.62.28.112\n176.223.121.193\n177.70.27.149\n177.185.192.136\n188.116.19.98\n188.166.41.182\n188.241.117.134\n191.101.152.144\n192.163.252.46\n192.254.189.252\n195.208.1.161\n202.52.146.56\n210.48.153.240\n217.160.230.183\n217.198.115.56\n91.218.89.74\n188.165.157.176\n208.73.210.214\n184.168.221.1\n89.31.72.177\n64.69.219.91\n185.14.56.96\n149.115.19.219\n64.124.16.204\n27.254.33.31\n50.87.144.196\n142.4.60.226\n103.6.198.219\n94.73.146.80\n23.229.189.110\n144.76.82.6\n204.232.192.84\n94.73.151.190\n160.153.77.2\n123.242.226.30\n46.226.47.21\n91.239.232.79\n187.17.111.104\n109.248.33.212\n216.55.149.9\n#
+        https://twitter.com/securityemploy\n169.159.98.88\n95.211.141.215\n# http://malware-traffic-analysis.net/2016/05/27/index.html\n109.95.159.1\n#
+        https://twitter.com/hasherezade\n109.234.109.142\n109.234.109.199\n109.234.109.138\n23.254.167.231\n87.72.73.231\n92.222.9.70\n128.31.0.39\n163.172.149.122\n171.25.193.9\n178.254.26.244\n188.40.128.246\n192.80.146.170\n193.23.244.244\n194.109.206.212\n208.83.223.34\n212.47.253.41\n5.9.253.168\n#
+        https://twitter.com/Tears0fSky\n90.7.200.200\n92.142.115.63\n# https://www.virustotal.com/en/file/40ea07c850897db3198c23eb2b2e056088f2325f2566b6dfb56678a093d5031b/analysis/1464372145/\n5.39.70.7\n23.229.130.200\n23.229.210.128\n24.131.207.220\n45.33.123.139\n45.56.70.171\n46.38.190.12\n46.101.146.228\n46.237.127.3\n49.50.76.239\n50.62.82.12\n50.62.218.1\n50.63.49.1\n50.63.181.19\n50.87.32.83\n54.79.59.85\n54.232.82.35\n69.89.31.162\n69.89.31.189\n69.195.82.219\n70.40.199.215\n74.208.9.32\n78.129.161.19\n78.153.216.155\n81.169.137.204\n85.159.67.205\n90.156.201.83\n94.73.146.30\n95.85.58.75\n99.198.116.211\n103.7.40.140\n103.15.49.21\n103.53.168.220\n104.131.76.239\n104.151.72.116\n104.238.74.65\n107.180.4.152\n107.180.41.126\n107.180.50.237\n108.163.206.185\n108.163.240.17\n109.74.8.64\n112.213.89.97\n128.65.195.64\n134.0.10.46\n134.0.15.116\n144.76.95.27\n158.69.180.179\n160.153.43.193\n160.153.45.1\n162.13.176.213\n162.144.120.200\n162.210.102.200\n162.243.69.163\n166.62.10.35\n166.62.28.96\n166.62.28.109\n166.62.28.111\n166.62.28.116\n166.62.28.132\n166.78.76.248\n173.82.21.210\n173.254.41.32\n178.159.7.57\n184.106.55.69\n184.107.174.122\n186.202.153.26\n186.202.161.96\n187.45.195.177\n188.65.117.70\n188.213.20.188\n192.111.157.127\n193.46.83.106\n193.200.255.37\n198.1.102.252\n198.57.169.13\n198.58.82.148\n198.58.93.8\n198.143.153.132\n203.162.96.80\n203.185.28.41\n205.147.98.130\n205.251.133.203\n#
+        https://www.virustotal.com/en/file/1f68fce7f92364a22ef3bc3d21e12924d2b5cc69106ef21fdf21bd9a4cb65d15/analysis/\n38.65.39.158\n45.29.139.155\n46.231.112.74\n50.63.157.171\n50.112.249.10\n51.255.102.41\n52.11.38.122\n52.62.149.4\n54.232.178.167\n81.169.152.253\n93.89.232.14\n94.73.151.210\n101.100.204.46\n103.11.191.170\n103.13.242.34\n103.255.238.155\n104.131.51.187\n108.179.196.18\n109.228.51.230\n122.15.60.189\n128.199.147.115\n138.201.48.106\n141.8.192.56\n142.4.22.48\n162.144.86.172\n162.144.121.16\n162.243.62.70\n166.62.10.36\n166.62.28.117\n166.62.28.118\n173.201.38.2\n177.12.164.84\n177.12.174.101\n177.70.106.248\n185.87.51.115\n185.119.173.236\n186.202.141.67\n186.202.153.171\n187.17.111.96\n198.54.114.193\n198.58.82.132\n200.98.190.41\n209.126.107.209\n216.170.203.69\n217.160.95.235\n217.160.166.40\n217.174.248.139\n#
+        https://heimdalsecurity.com/blog/torrentlocker-spoofs-telia-ransomware-attack/\n54.218.66.17\n54.192.46.49\n#
+        https://twitter.com/peterkruse\n103.208.86.7\n185.44.105.210\n5.34.183.158
+        \         # 745624354814304257\n51.254.24.48          # 745916790761488384\n217.12.223.88\n116.0.23.213
+        \         # 745526664889663488\n107.180.40.0/24       # 768031024672538624\n93.190.139.196
+        \       # 949686336335831041\n# http://malware-traffic-analysis.net/2016/06/01/index2.html\n173.201.92.1\n173.201.243.128\n192.230.81.211\n208.109.52.233\n192.185.225.245\n142.54.230.137\n#
+        https://twitter.com/GossiTheDog\n61.67.218.137\n83.166.243.206        # 1042810441897000961\n103.253.25.201\n145.249.104.238\n5.188.87.10
+        \          # 1053312410046611459\n# http://malware-traffic-analysis.net/2016/06/01/index.html\n23.96.52.53\n27.76.200.236\n46.30.46.6\n68.171.129.152\n78.96.223.247\n86.101.172.244\n88.247.23.60\n94.111.35.133\n103.62.255.92\n104.40.211.35\n112.201.214.21\n115.73.16.161\n120.63.221.199\n122.160.166.241\n122.163.24.91\n122.163.193.181\n123.28.166.92\n176.113.145.235\n180.183.195.29\n184.173.167.98\n202.91.73.186\n111.121.193.242\n#
+        https://twitter.com/bartblaze\n103.208.86.18\n69.30.210.254         # 748132592550092801\n92.222.66.214\n149.202.242.80\n208.67.1.15\n#
+        https://twitter.com/demonslay335\n158.69.241.183        # Mixed\n172.99.89.199\n185.53.179.8
+        \         # 743106570217623552\n# https://www.proofpoint.com/us/threat-insight/post/cryptxxx-ransomware-learns-samba-other-new-tricks-with-version3100\n85.25.194.116\n#
+        https://www.proofpoint.com/us/threat-insight/post/malicious-macros-add-to-sandbox-evasion-techniques-to-distribute-new-dridex?utm_content=buffere7dd2&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\n173.254.28.35\n23.239.206.87\n192.186.204.105\n93.170.141.22\n45.32.246.100\n45.32.149.66\n142.126.57.60\n154.58.222.139\n206.114.64.228\n70.212.173.116\n96.3.53.77\n14.99.114.250\n14.97.218.67\n82.120.94.63\n68.238.144.42\n#
+        http://malware-traffic-analysis.net/2016/06/02/index.html\n98.126.83.188\n98.126.83.189\n114.207.113.229\n220.95.232.236\n212.231.130.9\n162.252.83.62\n162.252.83.76\n#
+        https://www.virustotal.com/en/file/d378d1a2aae028e8aaa7640c79e7e3deda105f0f4f241f776617beb43ae1373f/analysis/\n85.25.214.50\n103.198.0.2\n#
+        https://twitter.com/christianpanton\n85.93.5.139\n# https://twitter.com/_jsoo_\n#
+        https://www.virustotal.com/en/ip-address/206.72.199.201/information/\n206.72.199.201\n#
+        https://github.com/Daxda/malware-analysis/tree/master/malware_samples/LinuxNet_perlbot\n173.208.245.170\n146.0.36.68\n217.172.189.70\n5.9.152.208\n75.127.10.40\n78.46.59.13\n#
+        https://otx.alienvault.com/pulse/575579d7b1b78e0134101728\n93.190.137.240\n#
+        https://otx.alienvault.com/pulse/575526aeb1b78e01341016c6\n103.195.185.94\n8.100.156.107\n5.100.156.107\n148.251.8.173\n#
+        http://malware-traffic-analysis.net/2016/06/06/index.html\n45.32.183.118\n67.215.187.94\n5.200.55.117\n104.238.171.123\n#
+        https://blog.fox-it.com/2016/06/07/linkedin-information-used-to-spread-banking-malware-in-the-netherlands/\n107.171.187.182\n#
+        https://twitter.com/malekal_morte\n5.135.111.139         # 742279720927121408\n193.169.194.168
+        \      # mixed\n104.20.68.21\n52.84.27.148\n198.134.112.232\n173.192.117.206\n174.137.155.139\n62.210.192.114\n5.200.55.51\n46.30.46.27\n5.9.5.184\n69.172.201.153
+        \       # 743071753379938304\n91.134.161.58\n# https://sonar.labs.rapid7.com/\n71.6.216.32/27\n#
+        https://www.proofpoint.com/us/threat-insight/post/cryptxxx2-ransomware-authors-strike-back-against-free-decryption-tool?utm_content=bufferce8cf&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\n217.23.13.153\n#
+        https://www.proofpoint.com/us/threat-insight/post/hancitor-ruckguv-reappear?utm_content=buffer19521&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\n192.185.48.154\n198.57.151.22\n187.45.195.17\n81.88.48.78\n94.73.151.90\n#
+        https://twitter.com/malm0u53\n185.53.179.6          # 742321153163825152\n139.129.174.148
+        \      # 741998595210129408\n195.208.1.104\n46.30.212.49\n92.53.118.117\n185.127.27.215
+        \       # 740455432263729152\n62.213.79.112\n155.94.243.59\n95.213.135.226
+        \       # 739038055466733568\n167.114.182.29\n5.8.63.31\n185.96.94.210         #
+        mixed\n37.140.192.237\n133.48.156.209\n121.193.89.201\n183.234.242.168\n76.185.173.111\n209.174.233.25\n53.1.70.40\n93.72.171.255\n157.165.6.183\n23.155.252.153\n72.167.53.101\n95.46.99.8\n46.8.255.106\n185.109.144.122\n155.94.243.59\n37.140.192.199\n80.93.54.37\n92.53.112.201\n#
+        https://isc.sans.edu/forums/diary/Neutrino+EK+and+CryptXXX/21141\n45.32.183.118\n#
+        https://otx.alienvault.com/pulse/575782996eb8c60135a9e3c6\n213.136.85.203\n5.189.151.14\n82.192.81.129\n91.109.22.107\n91.134.177.136\n87.236.215.113\n#
+        https://twitter.com/da_667\n91.134.177.136\n43.240.13.59\n192.64.81.136\n#
+        https://blogs.mcafee.com/mcafee-labs/locky-ransomware-hides-under-multiple-obfuscated-layers-of-javascript/\n#
+        https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26383/en_US/McAfee_Labs_Threat_Advisory-Ransomware-Locky.pdf\n195.22.28.196\n195.22.28.198\n#
+        https://riskanalytics.com/Dark_Cloud_Network_Facilitates_Crimeware.pdf\n109.229.27.208\n109.229.11.81\n178.214.176.42\n91.196.54.239\n159.224.34.90\n213.231.28.222\n37.229.107.205\n80.242.97.69\n212.87.182.133\n#
+        BBcan177 Mail Spam IOCs\n37.187.67.27\n52.38.192.140\n69.94.151.29\n77.104.129.120\n93.127.228.2\n98.129.229.73\n103.233.250.250\n104.18.40.33\n104.18.46.84\n104.18.53.41\n104.24.97.244\n104.24.120.241\n104.27.135.233\n104.27.146.91\n104.27.150.4\n104.28.2.168\n104.28.9.91\n104.28.24.55\n104.28.28.239\n104.31.64.190\n104.31.71.22\n104.31.80.136\n104.31.87.43\n104.31.89.219\n104.31.93.62\n107.150.166.243\n119.9.30.112\n158.69.219.115\n163.172.248.108\n173.240.168.87\n174.36.59.160\n184.173.76.108\n190.183.222.150\n192.254.189.17\n195.43.150.212\n198.12.145.135\n198.55.28.172\n216.55.168.220\n216.87.168.211\n64.95.100.84\n92.40.249.134\n188.29.164.0/24\n198.46.131.0/24\n#
+        https://www.virustotal.com/en/file/0c357e3d47167b7370ce5578bb25c4f1c8b1cd87dbd398ecc07bccdac5087aa1/analysis/\n13.84.157.153\n23.229.147.2\n23.229.160.9\n23.229.226.35\n23.229.231.39\n37.200.66.30\n38.229.70.4\n40.76.58.209\n46.16.62.124\n46.249.204.170\n62.149.128.151\n62.149.142.131\n63.143.47.112\n64.71.33.177\n65.181.113.254\n68.164.182.11\n69.58.188.40\n69.175.33.26\n74.50.28.190\n74.201.86.21\n77.245.68.162\n78.26.131.2\n78.46.89.154\n82.223.210.154\n84.116.32.65\n85.128.151.195\n86.65.123.70\n86.109.170.226\n87.106.240.27\n87.242.73.72\n89.106.12.61\n91.142.215.77\n93.89.224.190\n94.73.148.164\n94.102.7.42\n95.110.231.63\n95.211.144.68\n104.16.55.3\n104.20.31.3\n104.27.182.85\n107.180.51.237\n109.248.32.195\n128.31.0.39\n134.0.14.194\n142.217.193.140\n149.3.144.205\n159.253.45.219\n162.210.102.62\n162.222.225.77\n166.62.89.69\n177.185.192.141\n178.218.164.132\n187.33.0.252\n191.252.2.146\n191.252.2.148\n192.35.177.64\n192.64.117.188\n192.186.225.35\n194.27.72.146\n195.228.39.223\n198.144.36.150\n200.98.116.70\n200.155.86.74\n202.170.69.9\n205.144.171.55\n205.186.187.83\n208.109.47.170\n208.123.212.37\n210.55.230.195\n216.47.227.188\n216.70.228.110\n217.149.7.213\n217.160.231.143\n217.197.83.197\n#
+        https://twitter.com/InfoSec_DD\n193.200.241.142\n149.62.98.3           # 742855018793963520\n#
+        https://otx.alienvault.com/pulse/5758c4e8377bbb01340e895d\n93.174.90.126\n#
+        https://www.zscaler.com/blogs/research/malicious-documents-leveraging-new-anti-vm-anti-sandbox-techniques\n204.93.177.102\n#
+        https://isc.sans.edu/forums/diary/Searching+for+malspam/21145\n46.173.92.4\n62.149.132.43\n62.149.140.183\n65.181.113.29\n65.181.113.187\n95.215.46.153\n185.61.149.93\n188.165.157.176\n188.190.33.93\n198.105.244.228\n217.160.6.96\n#
+        https://reaqta.com/2016/06/nemucod-meets-php/\n37.140.192.209\n89.31.108.3\n92.53.121.36\n185.26.122.180\n#
+        https://otx.alienvault.com/pulse/5759741f78e335013763cea0\n8.5.1.35\n58.158.177.102\n#
+        https://www.hybrid-analysis.com/sample/e6f8bd93246e534ba73cdce9e6596f2913b9f32cc08c4d14c685f59441e42e1a?environmentId=100\n185.26.122.180\n#
+        https://www.arbornetworks.com/blog/asert/communications-bolek-trojan/\n91.215.154.155\n#
+        https://twitter.com/mesa_matt\n93.174.94.135\n37.112.59.79          # 745698957314113536\n166.78.145.90\n173.237.190.72\n185.139.0.217\n91.220.131.220\n#
+        https://blog.malwarebytes.org/cybercrime/exploits/2016/06/neutrino-exploit-kit-fills-in-for-angler-ek-in-recent-malvertising-campaigns/\n#
+        https://www.virustotal.com/en/domain/watch.pnwpga.com/information/\n69.30.229.132\n#
+        https://blogs.mcafee.com/mcafee-labs/thrones-jon-snow-appears-to-employ-neutrino-exploit-kit/\n#
+        http://viewdns.info/reversewhois/?q=yaplakal.r%40gmail.com\n# https://www.virustotal.com/en/domain/23iujasdhaskj.top/information/\n#
+        https://www.virustotal.com/en/domain/injec-software-me.com/information/\n#
+        https://www.virustotal.com/en/domain/gugendolik.com/information/\n# https://www.virustotal.com/en/domain/newserver-newscompnay.com/information/\n#
+        https://www.virustotal.com/en/domain/diahatvietnam.com/information/\n188.93.211.27\n188.93.211.67\n194.58.121.54\n74.57.205.136\n184.168.221.39\n69.197.18.183\n104.28.20.75\n104.28.21.75\n#
+        http://malware.dontneedcoffee.com/2016/06/is-it-end-of-angler.html\n66.150.114.20\n103.194.112.36\n138.201.162.161\n184.73.178.140\n85.143.209.61\n104.238.173.205\n185.117.73.124\n139.59.188.227\n45.32.182.43\n#
+        https://twitter.com/JanneFI\n31.170.163.90\n# https://www.arbornetworks.com/blog/asert/communications-bolek-trojan/\n91.215.154.155\n#
+        https://twitter.com/F_kZ_\n107.181.175.15\n88.127.231.124\n58.206.126.28\n162.144.156.241
+        \      # 744838342337007616\n1.35.32.95            # 742370496046583808\n2.226.228.33\n3.177.177.160\n4.4.137.168\n4.88.158.184\n7.87.41.16\n8.134.27.251\n14.221.219.225\n15.22.130.149\n16.167.234.192\n17.160.190.25\n18.176.47.78\n19.34.61.18\n20.89.101.250\n20.123.164.86\n22.224.76.149\n26.204.147.126\n28.32.221.17\n29.207.100.120\n30.232.78.239\n31.140.207.13\n32.120.71.1\n34.90.91.110\n35.47.222.13\n36.27.192.47\n38.97.170.78\n38.114.57.173\n38.234.124.213\n47.98.26.246\n49.139.190.13\n51.181.119.128\n53.2.186.19\n57.17.67.112\n57.66.143.78\n60.103.72.217\n61.125.246.31\n64.25.212.40\n67.226.101.210\n68.96.164.94\n69.11.90.163\n70.215.19.187\n71.250.234.148\n73.115.66.24\n73.134.157.228\n73.238.111.174\n74.51.90.52\n74.133.61.231\n82.187.81.4\n83.133.52.236\n88.151.101.129\n88.204.156.90\n89.99.54.140\n89.205.122.234\n90.130.74.91\n91.32.196.167\n92.243.219.229\n95.94.180.114\n98.44.76.218\n102.144.251.22\n107.5.150.38\n107.82.36.164\n107.107.116.161\n112.232.40.194\n113.22.225.129\n115.199.234.253\n116.243.53.245\n117.158.35.35\n119.132.244.145\n123.230.219.179\n125.99.186.180\n134.75.158.226\n134.77.10.29\n134.169.176.194\n137.69.222.215\n138.124.12.228\n139.60.79.248\n143.50.110.138\n143.92.58.174\n145.242.121.115\n145.254.247.7\n146.164.65.135\n148.22.255.219\n150.15.97.232\n150.130.130.31\n151.75.178.198\n151.220.234.186\n153.114.118.250\n155.94.67.23\n155.220.210.239\n163.20.178.10\n166.164.58.107\n166.176.46.71\n168.5.2.25\n169.0.158.243\n169.164.117.136\n172.188.162.144\n176.168.136.171\n177.16.14.56\n179.188.3.63\n183.177.176.53\n183.182.89.222\n185.66.95.10\n187.178.176.10\n190.85.72.92\n191.32.105.11\n192.70.226.155\n193.60.170.10\n193.100.138.58\n194.170.179.45\n195.1.71.220\n196.201.156.226\n198.36.81.78\n198.42.82.132\n200.140.196.192\n202.45.91.27\n204.95.85.50\n206.5.53.128\n206.48.132.155\n210.4.135.1\n210.205.88.28\n211.99.83.223\n212.237.238.105\n213.157.44.176\n216.73.211.178\n216.132.93.156\n217.42.9.62\n220.15.121.157\n225.24.137.64\n226.194.205.42\n228.18.238.173\n228.160.131.206\n229.90.213.181\n233.244.139.112\n235.148.76.158\n236.74.71.200\n239.230.119.73\n240.116.193.19\n241.225.220.134\n244.88.36.226\n244.184.154.158\n245.250.2.209\n246.137.215.198\n249.56.97.85\n249.63.207.73\n250.122.14.85\n254.55.46.193\n179.43.133.38\n51.255.19.179
+        \        # 747408054627377152\n# http://malware.dontneedcoffee.com/2016/06/is-it-end-of-angler.html\n5.133.179.79\n74.201.85.74\n45.32.183.83\n104.238.173.205\n#
+        https://twitter.com/DrolSecurity\n78.170.189.17\n# https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/\n185.100.84.134\n58.49.58.58\n218.1.98.203\n187.33.33.8\n185.86.148.227\n45.32.129.185\n23.227.196.217\n#
+        https://twitter.com/CyberScimitar\n178.170.189.17\n92.53.121.171\n185.93.108.132\n93.171.202.176\n188.127.230.5\n195.54.162.33\n37.139.29.105\n81.177.23.247
+        \        # 743470119838486528\n94.142.139.214\n178.170.189.17\n93.171.202.176\n46.254.21.69\n88.214.236.194\n#
+        https://twitter.com/in_threat\n204.152.203.99\n192.52.167.118\n84.200.68.163\n#
+        https://twitter.com/chmod1777\n104.168.180.192\n# https://twitter.com/Antelox\n59.180.231.54
+        \        # 743109421400752129\n94.102.50.50          # 743504417090113536\n77.222.56.251
+        \        # 744202025286639616\n31.220.17.11\n198.211.115.134\n93.89.224.8\n212.129.55.87\n46.30.212.111
+        \        # 744187915824152577\n88.208.252.204\n206.222.19.250\n188.40.248.65
+        \        # 744125834596876288\n81.177.165.93         # 744113839785009152\n120.26.59.61
+        \         # 744899390024880129\n212.129.55.87\n84.45.72.224          # 744930566538207236\n195.208.1.157\n5.101.152.55\n104.207.244.16
+        \       # 745302311241719808\n91.216.107.154\n46.41.144.46          # 745531040286932992\n87.236.19.41\n5.101.153.64\n5.101.153.43\n5.101.152.120\n121.41.90.205
+        \        # 746596735649255424\n103.224.22.12\n74.124.24.164\n5.101.152.71\n173.247.249.189\n5.101.153.0/24
+        \       # 746279030069002245\n5.101.152.67\n87.236.19.17          # 745930202530852864\n91.106.207.19\n87.236.19.60\n87.236.19.26\n#
+        https://twitter.com/GossiTheDog\n50.87.44.134          # 682164539689938944\n#
+        https://blog.fox-it.com/2016/06/15/mofang-a-politically-motivated-information-stealing-adversary/\n103.229.124.1\n103.39.78.131\n107.191.61.105\n112.213.117.52\n116.251.210.77\n116.251.216.165\n116.251.216.227\n116.251.216.72\n116.251.219.142\n117.17.10.10\n151.236.14.53\n176.31.220.160\n178.209.51.164\n178.209.52.72\n192.157.229.164\n198.98.103.7\n210.245.85.83\n23.89.200.128\n23.89.201.173\n38.109.190.55\n49.213.18.15\n50.117.47.66\n50.117.47.67\n61.250.92.79\n#
+        https://twitter.com/Simpo13\n46.254.21.84          # 743086368205705216\n4.198.232.114\n#
+        https://twitter.com/jeromesegura\n45.63.26.202          # 743165744054046720\n#
+        http://malware-traffic-analysis.net/2016/05/16/index.html\n188.93.211.67\n#
+        https://otx.alienvault.com/pulse/57616f7b5804b00134147bda\n5.56.133.145\n#
+        https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/22000/PD22960/en_US/McAfee-Labs-ThreatAdvisory-Pinkslipbot_RevA.pdf\n216.227.214.95\n72.29.86.119\n66.219.30.219\n110.4.45.64\n74.220.215.107\n162.144.12.241\n#
+        https://www.virustotal.com/en/file/5a878ac22eb059159c2976d11840bdae09111ba8e17933794dbfb23435d89bdd/analysis/1466045706/\n85.170.19.102\n#
+        https://twitter.com/James_inthe_box\n69.36.165.48          # 743502699069464576\n107.180.14.68
+        \        # 743515050980188162\n66.175.222.234        # 743532746446766080\n#
+        https://blog.malwarebytes.com/cybercrime/exploits/2016/06/a-look-at-the-angler-less-exploit-kit-scene/\n46.30.47.110\n#
+        https://twitter.com/BroadAnalysis\n46.30.47.116          # 743835993644597249\n185.133.72.122
+        \       # 743433394533576704\n5.200.55.156          # 742370461133180928\n93.114.65.96\n115.74.159.3\n84.232.212.135\n49.48.216.228\n85.93.0.43
+        \           # 742067919157366784\n45.63.41.234\n85.93.0.72            # 740920663876198400\n74.208.110.67
+        \        # 739465362157277185\n109.248.32.173        # 738360899015180288\n185.106.122.81
+        \       # 738047398417694720\n198.105.254.228\n66.240.194.139\n67.215.187.94
+        \        # 737452923551133696\n5.200.55.71\n46.30.46.190\n185.141.27.2          #
+        736199577175461888\n185.141.27.170        # 735503054301200386\n158.69.183.24\n81.2.240.180
+        \         # 734923510489944064\n80.87.205.115\n5.8.63.0/24\n85.93.0.81            #
+        734893549641175041\n185.141.27.143\n93.170.169.160\n95.213.139.116\n5.101.152.83
+        \         # 728793786738982912\n192.185.215.103\n5.144.130.40\n46.28.68.46\n51.254.93.2\n75.126.171.192\n178.210.171.15\n75.126.217.39\n87.98.183.207\n65.110.76.229\n217.160.230.9\n193.124.185.87\n185.86.78.3\n5.8.63.54
+        \            # 734411289011838977\n85.93.0.33            # 732655882039885825\n108.61.221.86\n204.155.30.124\n89.145.89.1
+        \          # 732297976887037956\n185.93.0.33           # 732250080317739008\n85.117.75.136\n185.117.75.136\n176.8.211.57\n85.25.95.39
+        \          # 744555497987186688\n185.119.173.35\n146.185.173.25        # 745335484461780992\n212.67.205.58\n74.208.77.101\n74.208.166.84\n74.208.161.216\n185.49.68.215\n58.64.142.89
+        \         # 745641395092865025\n46.30.47.137\t        # 746733497918853120\n45.35.86.57\n115.28.36.224\n46.30.46.170
+        \         # 746180434199986177\n185.127.25.247\n95.163.127.184\n108.163.224.94
+        \       # 746058357874761728\n# https://otx.alienvault.com/pulse/576453a7f15dc60134d27471\n151.80.9.92\n136.243.126.105\n5.196.241.192\n79.174.73.100\n178.33.188.146\n176.126.71.5\n#
+        https://twitter.com/ochsenmeier\n5.56.133.100          # 742448375312863233\n#
+        https://www.fireeye.com/blog/threat-research/2016/06/resurrection-of-the-evil-miner.html\n198.204.254.82\n88.214.200.145\n#
+        https://twitter.com/LowsonWebmin\n67.227.182.157        # 744932198709661696\n#
+        https://twitter.com/_odisseus\n78.31.66.161          # 744962399548096512\n#
+        https://twitter.com/jedisct1\n51.254.240.48         # 745315081852837888\n185.82.216.55\n217.12.223.83\n93.170.104.107
+        \       # 745339163550023681\n91.219.29.41          # 745624598809546753\n93.170.169.188\n217.12.223.88
+        \        # 746348458852950016\n195.123.209.227\n185.82.216.61\n217.12.223.89\n5.61.37.139
+        \          # 745994532009943040\n195.123.209.227       # 745743267170488321\n185.82.216.60\n217.12.223.88\n#
+        https://blogs.forcepoint.com/security-labs/highly-popular-anime-site-jkanime-compromised-redirecting-users-neutrino-ek#st_refDomain=t.co&st_refQuery=/xjOrgjTNtC\n104.25.159.13\n146.185.173.25\n#
+        https://twitter.com/mikko\n113.10.158.114        # 745182672549359616\n203.189.232.1\n118.193.246.157\n182.16.4.2\n103.242.3.47\n182.16.4.6\n#
+        https://blog.malwarebytes.com/threat-analysis/2016/03/scammers-impersonate-isps-in-new-tech-support-campaign/\n190.97.163.85\n130.211.186.109\n74.220.199.6\n#
+        https://twitter.com/0xtadavie\n91.219.29.41          # 745581758217883648\n#
+        https://labs.opendns.com/2016/06/20/bitcoin-wallet-phishes-reveal-rogue-hosts/\n89.248.171.0/24\n91.218.247.0/24\n104.28.30.195\n93.174.91.42\n#
+        23.236.62.147\n162.213.255.53\n50.116.61.95\n# https://otx.alienvault.com/pulse/576a6ba4f15dc60d70d2777a\n129.121.5.191\n213.205.38.24\n46.30.213.77\n93.190.41.97\n160.153.73.4\n203.124.43.226\n45.40.143.233\n192.186.200.134\n162.213.157.131\n217.160.177.243\n89.107.186.4\n123.30.145.20\n213.205.38.28\n195.14.0.150\n213.205.38.25\n103.6.198.138\n109.71.40.52\n192.186.209.5\n23.229.133.197\n112.78.2.153\n#
+        https://otx.alienvault.com/pulse/576ad190f9467301352cdbfb\n176.126.71.5\n#
+        https://twitter.com/malcatmewmew\n85.128.210.66\n193.203.99.113\n# https://twitter.com/0xtadavie\n185.82.216.61
+        \        # 747360136843399168\n217.12.223.89\n195.123.209.227       # 745955826423177216\n#
+        https://blog.fortinet.com/2016/06/21/the-curious-case-of-an-unknown-trojan-targeting-german-speaking-users\n82.165.37.26\n#
+        https://twitter.com/ReaQta\n103.6.198.185         # 745917278181523456\n104.152.168.29\n107.180.24.238\n107.6.169.61\n109.234.160.30\n112.140.178.249\n143.95.250.67\n146.120.112.197\n160.153.73.196\n162.210.102.232\n166.63.125.135\n175.45.184.160\n176.62.167.160\n185.149.90.4\n188.40.0.214\n192.185.146.153\n192.185.225.43\n192.185.65.228\n192.186.246.98\n192.254.188.98\n193.203.99.111\n193.203.99.113\n195.208.0.136\n199.204.248.105\n199.241.184.10\n202.124.241.203\n203.132.10.3\n216.120.252.191\n217.73.226.220\n217.76.156.98\n23.229.131.128\n46.226.62.141\n46.226.62.145\n65.39.184.151\n66.33.222.26\n69.156.240.29\n75.119.198.150\n79.174.64.15\n80.78.166.19\n83.96.159.64\n85.118.237.109\n85.25.235.209\n89.36.135.166\n92.53.126.193\n94.247.170.75\n95.38.60.148\n98.131.20.17
+        \         # 745909797707464704\n195.234.4.64\n173.225.21.34\n94.46.167.10\n213.189.197.201\n67.231.20.224\n108.160.148.6\n149.255.34.144\n87.239.18.13\n23.229.135.101\n212.227.33.91\n88.208.252.194\n81.177.140.141\n90.156.201.56\n77.221.130.6\n195.208.1.146
+        \        # 748174104633679872\n14.31.59.147\n62.42.230.17\n85.9.56.201\n88.86.120.126\n93.170.123.219\n95.170.90.21\n149.154.159.125\n151.236.17.45\n151.236.17.47\n188.116.19.59\n207.204.30.14\n212.23.8.80\n213.158.72.90\n216.239.136.136\n216.239.136.223\n217.31.51.180\n217.119.54.167\n208.71.106.37
+        \        # 748113712880435200\n46.19.218.30\n205.236.147.16\n# https://twitter.com/tmmalanalyst\n62.76.188.61
+        \         # 746896087164719104\n40.30.47.137          # 746743875998343168\n#
+        http://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/\n5.9.94.34\n5.79.71.225\n46.101.115.221\n69.195.129.72\n83.125.22.161\n85.17.31.82\n85.17.31.122\n138.201.0.134\n138.201.47.150\n138.201.47.153\n138.201.47.158\n144.76.250.205\n178.162.217.107\n178.162.203.202\n178.162.203.211\n178.162.203.226\n#
+        https://twitter.com/h3x2b\n89.111.177.133        # 747738867877421056\n193.203.99.112\n86.106.30.71\n62.14.3.195\n62.37.237.59\n64.50.161.218\n66.147.244.210\n69.27.174.10\n78.24.186.235\n80.74.144.35\n81.24.1.16\n81.196.20.133\n83.235.64.44\n85.193.69.29\n89.42.39.160\n91.223.216.66\n112.140.42.29\n166.62.10.52\n178.254.62.52\n188.40.77.144\n192.185.36.128\n192.186.251.225\n195.3.96.72\n198.1.71.135\n198.169.132.17\n208.71.106.219\n#
+        https://twitter.com/Simpo13\n51.236.15.226         # 747844999467892740\n194.9.94.117\n#
+        https://twitter.com/dez_\n139.59.191.79         # 747807234684379137\n78.46.167.130\n#
+        https://twitter.com/JaiGuill\n95.59.26.88           # 748081704171151364\n107.181.255.246\n#
+        https://twitter.com/IgnotumAliquis\n82.221.139.0/24       # 785990081043496960\n#
+        https://www.reddit.com/r/Malware/comments/4tfrja/malware_served_from_reddit_ad_xpost_from_rads/\n104.243.35.138\n#
+        https://www.proofpoint.com/us/threat-insight/post/massive-adgholas-malvertising-campaigns-use-steganography-and-file-whitelisting-to-hide-in-plain-sight\n5.187.5.206\n50.7.124.160\n50.7.124.184\n50.7.124.215\n50.7.143.14\n50.7.143.70\n95.154.199.67\n95.154.199.79\n95.154.199.135\n95.154.199.181\n95.154.199.182\n95.154.199.183\n162.247.14.213\n179.43.147.195\n179.43.147.242\n192.240.97.164\n193.109.69.212\n46.183.219.105\n46.183.220.156\n46.183.221.146\n91.219.239.113\n184.171.243.62\n184.171.243.63\n185.29.11.167\n191.101.250.49\n191.101.251.1\n191.101.251.12\n192.169.7.226\n#
+        http://researchcenter.paloaltonetworks.com/2016/07/unit-42-attack-delivers-9002-trojan-through-google-drive/\n222.239.91.30\n210.209.118.30\n43.225.56.138\n#
+        http://researchcenter.paloaltonetworks.com/2016/08/unit42-vb-dropper-and-shellcode-for-hancitor-reveal-new-techniques-behind-uptick/\n62.141.54.153\n213.239.192.240\n#
+        http://www.kahusecurity.com/2016/javascript-leads-to-browser-hijacking/\n95.153.31.22\n#
+        https://www.us-cert.gov/hiddencobra\n104.192.193.149\n111.207.78.204\n117.232.100.154\n119.10.74.66\n122.114.89.131\n122.114.94.26\n125.160.213.239\n125.212.132.222\n139.217.27.203\n173.0.129.65\n173.0.129.83\n175.100.189.174\n181.119.19.118\n181.119.19.141\n181.119.19.196\n181.119.19.5\n181.119.19.50\n181.119.19.54\n181.119.19.56\n181.119.19.58\n181.119.19.74\n190.105.225.232\n190.82.74.66\n190.82.86.164\n191.233.33.177\n191.234.40.112\n195.74.38.115\n196.25.89.30\n197.211.212.14\n199.167.100.46\n200.57.90.108\n203.160.191.116\n208.180.64.10\n208.78.33.70\n208.78.33.82\n209.183.21.222\n210.202.40.35\n216.163.20.178\n221.208.194.72\n221.235.53.229\n27.123.221.66\n36.71.90.4\n41.92.208.194\n41.92.208.196\n41.92.208.197\n5.79.99.169\n50.62.168.157\n59.90.93.138\n62.243.45.227\n64.29.144.201\n66.175.41.191\n66.232.121.65\n66.242.128.11\n66.242.128.12\n66.242.128.13\n66.242.128.134\n66.242.128.140\n66.242.128.158\n66.242.128.162\n66.242.128.163\n66.242.128.164\n66.242.128.170\n66.242.128.173\n66.242.128.179\n66.242.128.181\n66.242.128.185\n66.242.128.186\n66.242.128.223\n71.125.1.130\n71.125.1.132\n71.125.1.133\n71.125.1.138\n72.167.53.183\n75.103.110.134\n77.78.100.101\n81.0.213.173\n82.223.213.115\n82.223.73.81\n91.116.139.195\n96.65.90.58\n98.101.211.140\n98.101.211.162\n98.101.211.170\n98.101.211.251\n98.113.84.130\n98.159.16.132\n#
+        https://securingtomorrow.mcafee.com/mcafee-labs/android-malware-appears-linked-to-lazarus-cybercrime-group/\n14.139.200.107\n175.100.189.174\n197.211.212.31\n199.180.148.134\n110.45.145.103\n217.117.4.110\n61.106.2.96\n181.119.19.100\n124.248.228.30\n119.29.11.203\n139.96.55.146\n114.215.130.173\n#
+        https://twitter.com/CraneHassold\n178.159.36.241        # 937389328648560647\nhttps://twitter.com/Techhelplistcom\n202.181.24.235
+        \       # 940805468271804416\n91.234.99.151         # 965345305578409984\n80.211.245.223
+        \       # 992044061216460800\n217.61.108.26         # 992252017065189380\nhttps://twitter.com/JayTHL\n176.74.30.18
+        \         # 1118021886808612865\n# https://twitter.com/switchingtoguns\n185.110.132.218
+        \      # 946413033349369857\n# https://twitter.com/bad_packets\n181.214.87.0/24
+        \      # 976644371364773888\n185.8.51.39           # 982106706292367360\n5.188.9.135\n198.211.99.33
+        \        # 1064325625123500032\n111.90.158.225\n# https://twitter.com/bry_campbell\n111.90.138.178
+        \       # 983649159508054017\n# https://twitter.com/aa419\n64.20.39.27           #
+        991440987162460160\n# https://blog.talosintelligence.com/2018/05/VPNFilter.html\n91.121.109.209\n#
+        217.12.202.40 (TOR Node)\n94.242.222.68\n# 82.118.242.124 (TOR Node)\n46.151.209.33\n217.79.179.14\n91.214.203.144\n95.211.198.231\n195.154.180.60\n5.149.250.54\n91.200.13.76\n94.185.80.82\n62.210.180.229\n#
+        https://twitter.com/BBcan177\n5.45.79.15            # 1003344397176537088\n92.40.248.0/24
+        \       # Spammer\n92.40.249.0/24        # Spammer\n# https://twitter.com/bad_packets\n166.63.127.154
+        \       # 1031286141654204416\n185.82.200.87         # 1068567506070102017\n#
+        https://twitter.com/alphasoc\n206.189.40.55         # 1039355203609223170\n213.174.157.150
+        \      # 1056792558284619776\n# https://www.fireeye.com/blog/threat-research/2018/11/not-so-cozy-an-uncomfortable-examination-of-a-suspected-apt29-phishing-campaign.html\n95.216.59.92\n#
+        https://twitter.com/JayTHL\n101.99.90.67          # 1165861042859253760\n103.254.208.44\n104.194.11.41\n104.243.245.155\n104.244.74.119\n107.173.125.119\n107.174.14.10\n142.11.211.58\n162.144.78.83\n173.82.206.243\n176.53.12.17\n178.159.36.167\n178.159.36.236\n181.41.215.48\n"
+    http_version: 
+  recorded_at: Mon, 02 Dec 2019 06:25:00 GMT
+recorded_with: VCR 5.0.0

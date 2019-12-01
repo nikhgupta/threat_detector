@@ -5,59 +5,99 @@ module ThreatDetector
   #
   # Path where feed entries will be saved can be provided, along with
   # scraping configuration for various feed URLs. Please, look into
-  # `ThreatDetector::Scraper` to read more about scraping configuration.
+  # {ThreatDetector::Scraper} to read more about scraping configuration.
   #
+  # At the moment, only feeds from ThreatFeeds.io are parsed, but functionality
   class Downloader
     include ThreatDetector::Utility
-    FEEDS_URL = 'https://threatfeeds.io'
+
+    # Mapping of online threat sources.
+    #
+    # This is used by {#fetch_feeds} to map these sources to a method
+    # for fetching list of feeds from these online sources.
+    SOURCES = {
+      threatfeeds: 'https://threatfeeds.io'
+    }.freeze
 
     attr_reader :options
 
+    # Instantiate a new {ThreatDetector::Downloader}
+    #
+    # @param  (see ThreatDetector::Utility#sanitize_options)
+    # @option opts [String] :working_directory directory to download feeds and build cache in
+    # @option opts [String] :feeds_config_path path to YAML file with scraping config
+    #
+    # The default options are:
+    #   working_directory: ~/.threat_detector
+    #   feeds_config_path: <gem_path>/threat_detector/feeds.yaml
     def initialize(options = {})
       @options = sanitize_options(options)
-      @cache = ThreatDetector::Cache.load(options)
     end
 
-    # Fetch feeds as JSON data from ThreatFeeds.io, and scrape them.
+    # Download list of threats from provided online sources by scraping them.
+    # First a list of feeds is compiled from online sources, after which each
+    # feed is scraped for threat entries.
     #
-    # Entries from each feed are saved into subsets in our local cache.
-    # Afterwards, we freeze our cache to make sure its not mutable.
+    # @yield [item, scraper] iterator for a feed and scraper after scraping
+    # @yieldparam [Hash] item feed item from online sources with name, url and source
+    # @yieldparam [ThreatDetector::Scraper] scraper scraper instance after scraping has been performed
+    # @return [Array<Hash>] array of feed items with name, url and source
     #
-    # We can pass a block to this method to further work with the scraper.
-    #
+    # @note The scraper instance being yielded has entries scraped from the feed,
+    #   or otherwise, contains the reason for not having any entries.
     def run
-      fetch_feeds_json FEEDS_URL
       scraper = ThreatDetector::Scraper.new options
 
-      @json.each do |row|
-        next unless valid_feed?(row)
+      fetch_feeds.map do |item|
+        next unless valid_feed?(item)
 
-        scraper.reset!(row['name'], row['url'])
-        scraper.parse_and_save_entries { |arr| @cache.add_entries arr }
+        scraper.for(item['name'], item['url'])
+        scraper.parse_and_save_entries
 
-        yield(row['name'], row, scraper) if block_given?
-      end
+        yield(item, scraper) if block_given?
+        item.slice('name', 'url', 'source')
+      end.compact
+    end
 
-      @cache.finalize!
+    # Fetch a list of feeds from each online source available to us.
+    # Each online source is fed to a custom method for handling that
+    # particular online source.
+    #
+    # @raise [ThreatDetector::Error] when feeds JSON can't be found or parsed
+    # @return [Array<Hash>] list of feed items with details from online sources
+    #
+    # @note {ThreatDetector::Error} is raised whenever we receive errors from
+    #   parsing underlying online sources.
+    def fetch_feeds
+      SOURCES.keys.map do |name|
+        items = send "fetch_feeds_from_#{name}"
+        items.map { |item| item.merge('source' => name.to_s) }
+      end.flatten(1)
+    end
+
+    # Fetch a list of feeds from ThreatFeeds.io
+    # @return [Array<Hash>] list of feeds items found on ThreatFeeds.io
+    # @raise [ThreatDetector::Error] when feeds JSON can't be found or parsed
+    # @see #fetch_feeds
+    def fetch_feeds_from_threatfeeds
+      fetch_page SOURCES[:threatfeeds]
+      regex = /var\s+feeds\s*=\s*(.*?);/i
+      match = @page.body_str.match(regex)
+      raise_error 'Could not find feeds JSON for ThreatFeeds.io' unless match
+
+      items = JSON.parse(match[1])
+      items.select { |item| item['pricing'] == 'free' }
+    rescue JSON::ParserError, TypeError
+      raise_error 'Could not validate feeds JSON for ThreatFeeds.io'
     end
 
     protected
 
-    def fetch_feeds_json(url)
-      fetch_page url
-      regex = /var\s+feeds\s*=\s*(.*?);/i
-      match = @page.body_str.match(regex)
-      raise_error 'Could not find feeds JSON' unless match
-
-      @json = JSON.parse(match[1])
-    rescue JSON::ParserError, TypeError
-      raise_error 'Could not validate feeds JSON'
-    end
-
-    def valid_feed?(row)
-      return false if row['url'].to_s.strip.empty?
-
-      row['pricing'] == 'free'
+    # Check whether a given feed contains valid data.
+    # This is a naive implementation at the moment, but can be useful in future
+    # for other online sources.
+    def valid_feed?(item)
+      !item['url'].to_s.strip.empty?
     end
   end
 end
