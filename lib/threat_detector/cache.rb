@@ -150,7 +150,7 @@ module ThreatDetector
         cache = get_cache(key)
         next unless cache
 
-        Rambling::Trie.dump(cache, save_path_for(key))
+        Rambling::Trie.dump(cache.compress, save_path_for(key))
         [key, cache.size]
       end.to_h
     end

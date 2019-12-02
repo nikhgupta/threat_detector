@@ -74,7 +74,10 @@ module ThreatDetector
     private
 
     def print_stats(info, status: 'CACHE', padding: nil)
-      str = info.map { |key, val| "#{key}=#{val}" }.join(', ')
+      str = info.map do |key, val|
+        val = val.respond_to?(:length) ? val.length : val
+        "#{key}=#{val}"
+      end.join(', ')
       status = padding ? "%#{padding}s" % status : status
       say_status status, str
     end

@@ -22,10 +22,15 @@ RSpec.describe ThreatDetector::Search do
   end
 
   def verify_unsafe(entry, options = {})
-    expect(subject.find(entry, options)).to include(safe: false)
+    reason = options.delete(:reason)
+    options[:resolve] = options.fetch(:resolve, false)
+    data = subject.find(entry, options)
+    expect(data).to include(safe: false)
+    expect(data).to include(reason: reason) if reason
   end
 
   def verify_safe(entry, options = {})
+    options[:resolve] = options.fetch(:resolve, false)
     expect(subject.find(entry, options)).to include(safe: true)
   end
 
@@ -70,14 +75,14 @@ RSpec.describe ThreatDetector::Search do
       verify_safe '159.89.34.175'
       verify_safe '124.129.34.212'
       verify_unsafe '115.113.203.147'
-      verify_unsafe '62.210.188.15'
+      verify_unsafe '62.210.188.15', reason: :ip
     end
 
     it 'marks IP as unsafe when found in unsafe network' do
       verify_safe '92.244.36.62'
       verify_safe '92.244.36.80'
-      verify_unsafe '92.244.36.70'
-      verify_unsafe '92.244.36.79'
+      verify_unsafe '92.244.36.70', reason: :ip_in_network
+      verify_unsafe '92.244.36.79', reason: :ip_in_network
     end
 
     it 'marks IP directly when smarter searching is turned off' do
@@ -99,11 +104,11 @@ RSpec.describe ThreatDetector::Search do
     end
 
     it 'marks networks as unsafe when found in wider unsafe network' do
-      verify_unsafe '92.244.36.64/29'
-      verify_unsafe '92.244.36.64/30'
-      verify_unsafe '92.244.36.64/31'
-      verify_unsafe '92.244.36.64/32'
-      verify_unsafe '92.244.36.70/30'
+      verify_unsafe '92.244.36.64/29', reason: :in_wider_network
+      verify_unsafe '92.244.36.64/30', reason: :in_wider_network
+      verify_unsafe '92.244.36.64/31', reason: :in_wider_network
+      verify_unsafe '92.244.36.64/32', reason: :ip_in_network # /32 implies IP
+      verify_unsafe '92.244.36.70/30', reason: :in_wider_network
 
       verify_safe '92.244.36.60/24'
       verify_safe '92.244.36.60/28'
@@ -119,11 +124,11 @@ RSpec.describe ThreatDetector::Search do
       verify_safe '92.244.36.60/24', smarter: false
       verify_safe '92.244.36.60/28', smarter: false
 
-      verify_unsafe '92.244.36.64/28', smarter: false
+      verify_unsafe '92.244.36.64/28', smarter: false, reason: :network
     end
 
     it 'marks URL as unsafe when found in database, directly' do
-      verify_unsafe '124.129.34.212:2000/2897'
+      verify_unsafe '124.129.34.212:2000/2897', reason: :url
       verify_unsafe 'http://124.129.34.212:2000/2897'
       verify_unsafe 'http://124.129.34.212:2000/2897/'
       verify_unsafe 'scalyze.com/irs-letters-062018-026/28'
@@ -137,14 +142,14 @@ RSpec.describe ThreatDetector::Search do
     end
 
     it 'marks URL as unsafe when host/IP is a threat' do
-      verify_unsafe 'https://minero.cc'
-      verify_unsafe 'miNEro.CC/test-page'
-      verify_unsafe 'http://88.TO/TEST-page/'
-      verify_unsafe 'http://minero.cc/test-page'
-      verify_unsafe 'https://62.210.188.15'
-      verify_unsafe 'http://62.210.188.15/test-page'
-      verify_unsafe 'https://92.244.36.79/test-page'
-      verify_unsafe 'http://k99915xt.BEGET.tech/'
+      verify_unsafe 'https://minero.cc', reason: :host
+      verify_unsafe 'miNEro.CC/test-page', reason: :host
+      verify_unsafe 'https://62.210.188.15', reason: :ip
+      verify_unsafe 'http://88.TO/TEST-page/', reason: :host
+      verify_unsafe 'http://minero.cc/test-page', reason: :host
+      verify_unsafe 'http://k99915xt.BEGET.tech/', reason: :host
+      verify_unsafe 'http://62.210.188.15/test-page', reason: :ip
+      verify_unsafe 'https://92.244.36.79/test-page', reason: :ip_in_network
       verify_safe 'http://scalyze.com/test-page'
       verify_safe 'https://92.244.36.80/test-page'
       verify_safe 'http://k99915xt.beget.tech/test-page'
@@ -158,7 +163,7 @@ RSpec.describe ThreatDetector::Search do
       verify_safe 'http://scalyze.com/test-page', smarter: false
       verify_safe 'http://62.210.188.15/test-page', smarter: false
       verify_safe 'https://92.244.36.79/test-page', smarter: false
-      verify_unsafe 'scalyze.com/IRS-Letters-062018-026/28/'
+      verify_unsafe 'scalyze.com/IRS-Letters-062018-026/28/', reason: :url
     end
 
     it 'marks random strings if found directly in database' do
@@ -166,7 +171,7 @@ RSpec.describe ThreatDetector::Search do
       verify_safe ' '
       verify_safe '\n'
       verify_safe 'random-string'
-      verify_unsafe 'unsafe-string'
+      verify_unsafe 'unsafe-string', reason: :matched
     end
   end
 

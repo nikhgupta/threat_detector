@@ -157,11 +157,11 @@ module ThreatDetector
       return unless options.fetch(:smarter, true)
 
       uri = URI.parse("http://#{item}")
-      reason, found = unsafe_host?(uri.host)
+      reason, found = unsafe_host?(uri.host, options)
       return [reason, found] if found
 
-      reason, found = unsafe_ip?(uri.host)
-      return [reason == :ip ? :ip : :ip_in_network, found] if found
+      reason, found = unsafe_ip?(uri.host, options)
+      return [reason, found] if found
     end
 
     # Check if the provided host item is safe or unsafe?
@@ -171,9 +171,13 @@ module ThreatDetector
     # @option options [Bool] smarter Disable smarter searching
     # @return [Symbol, String] reason and identified threat for this item
     #   or nil, if the item is considered to be safe
-    def unsafe_host?(item, _options = {})
+    def unsafe_host?(item, options = {})
       item = item.to_s.downcase
       return [:host, item] if in_pool?(:host, item)
+      return unless options.fetch(:resolve, true)
+
+      reason, found = unsafe_resolved_ip?(item)
+      return ["resolved_#{reason}", found] if found
     end
 
     # Check if the provided IP is safe or unsafe?
@@ -188,7 +192,11 @@ module ThreatDetector
       return unless options.fetch(:smarter, true)
 
       found = contained_in_network?(item)
-      return [:in_network, found] if found
+      return [:ip_in_network, found] if found
+      return unless options.fetch(:resolve, true)
+
+      reason, found = unsafe_resolved_host?(item)
+      return ["resolved_#{reason}", found] if found
     end
 
     # Check if the provided network is safe or unsafe?
@@ -203,7 +211,7 @@ module ThreatDetector
       return unless options.fetch(:smarter, true)
 
       found = contained_in_network?(item)
-      return [:in_network, found] if found
+      return [:in_wider_network, found] if found
     end
 
     # Check if the provided string is safe or unsafe?
@@ -215,7 +223,7 @@ module ThreatDetector
     #   or nil, if the item is considered to be safe
     def unsafe_unknown?(item, _options = {})
       item = item.to_s.downcase
-      return [:unknown, item] if in_pool?(:unknown, item)
+      return [:matched, item] if in_pool?(:unknown, item)
     end
 
     private
@@ -234,15 +242,38 @@ module ThreatDetector
     end
 
     def contained_in_network?(item)
+      return unless valid_ip?(item)
+
       ip = IPAddress.parse(item)
       cache.network.detect { |net| IPAddress.parse(net).include?(ip) }
-    rescue ArgumentError
-      nil
     end
 
     def extract_options(args)
       opts = args.last.is_a?(Hash) ? args.pop : {}
       [args, opts]
+    end
+
+    def unsafe_resolved_ip?(host)
+      Resolv.each_address(host) do |ip|
+        data = unsafe_ip?(ip, resolve: false)
+        return data if data
+      end
+
+      nil
+    end
+
+    def unsafe_resolved_host?(ip)
+      return unless valid_ip?(ip)
+
+      ip = IPAddress.parse(ip)
+      return if ip.network? || ip.size != 1
+
+      Resolv.each_name(ip.to_s).each do |host|
+        data = unsafe_host?(host, resolve: false)
+        return data if data
+      end
+
+      nil
     end
   end
 end

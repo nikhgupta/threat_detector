@@ -125,16 +125,27 @@ module ThreatDetector
     #
     # @see https://github.com/ipaddress-gem/ipaddress IPAddress Library ReadMe
     def categorize_ip_or_uri(str)
-      ip = IPAddress.parse(str)
-      if ip.network? && ip.size == 1
-        ip.mapped? ? :url : :ip
-      elsif ip.network?
-        :network
+      if valid_ip?(str)
+        ip = IPAddress.parse(str)
+        if ip.network? && ip.size > 1
+          :network
+        else
+          :ip
+        end
       else
-        :ip
+        categorize_uri(str)
       end
-    rescue ArgumentError
-      categorize_uri(str)
+    end
+
+    def valid_ip?(str)
+      return :ipv4 if IPAddress.valid_ipv4?(str)
+      return :ipv6 if IPAddress.valid_ipv6?(str)
+
+      ip, mask = str.split('/', 2)
+      return false unless mask.to_i.to_s == mask && mask.to_i <= 32
+      return :network if IPAddress.valid_ipv4?(ip)
+
+      false
     end
   end
 end
