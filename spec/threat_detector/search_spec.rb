@@ -24,14 +24,15 @@ RSpec.describe ThreatDetector::Search do
   def verify_unsafe(entry, options = {})
     reason = options.delete(:reason)
     options[:resolve] = options.fetch(:resolve, false)
-    data = subject.find(entry, options)
+    data = subject.find(entry, options).merge(search: entry)
     expect(data).to include(safe: false)
     expect(data).to include(reason: reason) if reason
   end
 
   def verify_safe(entry, options = {})
     options[:resolve] = options.fetch(:resolve, false)
-    expect(subject.find(entry, options)).to include(safe: true)
+    data = subject.find(entry, options).merge(search: entry)
+    expect(data).to include(safe: true)
   end
 
   def stub_cache
@@ -107,7 +108,7 @@ RSpec.describe ThreatDetector::Search do
       verify_unsafe '92.244.36.64/29', reason: :in_wider_network
       verify_unsafe '92.244.36.64/30', reason: :in_wider_network
       verify_unsafe '92.244.36.64/31', reason: :in_wider_network
-      verify_unsafe '92.244.36.64/32', reason: :ip_in_network # /32 implies IP
+      verify_unsafe '92.244.36.64/32', reason: :in_wider_network
       verify_unsafe '92.244.36.70/30', reason: :in_wider_network
 
       verify_safe '92.244.36.60/24'

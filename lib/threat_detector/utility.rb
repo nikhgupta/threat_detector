@@ -127,7 +127,7 @@ module ThreatDetector
     def categorize_ip_or_uri(str)
       if valid_ip?(str)
         ip = IPAddress.parse(str)
-        if ip.network? && ip.size > 1
+        if ip.network? || ip.size > 1 || valid_network?(str)
           :network
         else
           :ip
@@ -141,11 +141,14 @@ module ThreatDetector
       return :ipv4 if IPAddress.valid_ipv4?(str)
       return :ipv6 if IPAddress.valid_ipv6?(str)
 
+      valid_network?(str)
+    end
+
+    def valid_network?(str)
       ip, mask = str.split('/', 2)
       return false unless mask.to_i.to_s == mask && mask.to_i <= 32
-      return :network if IPAddress.valid_ipv4?(ip)
 
-      false
+      IPAddress.valid_ipv4?(ip)
     end
   end
 end
