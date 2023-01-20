@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'pry'
 
-  spec.add_dependency 'activesupport', '~> 6.0'
+  spec.add_dependency 'activesupport', '>= 6', '< 8'
   spec.add_dependency 'curb', '~> 0.9'
   spec.add_dependency 'ipaddress', '~> 0.8'
   spec.add_dependency 'nokogiri', '~> 1.10'
